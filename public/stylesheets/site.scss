@@ -1,0 +1,185 @@
+@import "common";
+@import "header";
+@import "modal";
+@import "chart";
+@import "dashboard";
+@import "events";
+
+body {
+  background-color: #f7f7f7;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: #414635;
+  cursor: pointer;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  z-index: 999;
+  width: 100%;
+  height: 50px;
+  margin-top: 20px;
+  font-size: 10px;
+  background-color: #f8f8f8;
+  border-top: 1px solid #ccc;
+}
+
+main {
+  padding-top: 60px;
+  margin-bottom: 80px;
+}
+
+.open > .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: $color-primary;
+  border-color: $color-primary;
+}
+
+.section {
+  margin-top: 10px;
+}
+
+.back-button {
+  margin-top: 21px;
+}
+
+.glyphicon-ok-sign, .glyphicon-check {
+  color: #37b54a;
+}
+
+.glyphicon-adjust {
+  color: #fff004;
+}
+
+.glyphicon-exclamation-sign, .glyphicon-map-marker {
+  color: #d9534f;
+}
+
+.head-list {
+  padding: 10px 0;
+  color: #fff;
+  background-color: $color-primary;
+  border-radius: 10px 10px 0 0;
+}
+
+.head-list-not {
+  @extend .head-list;
+  background-color: #0290ce;
+}
+
+.footer-list, .footer-list-not, .head-list-alone {
+  padding: 3px 0;
+  margin-bottom: 30px;
+  font-weight: bold;
+  color: #fff;
+  background-color: $color-primary;
+  border-radius: 0 0 7px 7px;
+}
+
+.footer-list-not {
+  background-color: #0290ce;
+}
+
+.head-list-alone {
+  padding: 3px 0;
+  margin-bottom: 3px;
+  font-weight: bold;
+  background-color: #666;
+  border-radius: 7px 7px 0 0;
+}
+
+.border-right {
+  border-right: 1px solid #999;
+}
+
+// Tables
+.table {
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  border-left: 1px solid #eee;
+}
+
+.td-table, .table > tbody > tr > th, .table > tfoot > tr > th, .table > tbody > tr > td, .table > tfoot > tr > td {
+  font-size: 12px;
+  line-height: 1.42857143;
+  input {
+    margin: 7px 0;
+  }
+  .btn {
+    padding: 0 8px;
+    margin: 2px;
+  }
+}
+
+thead {
+  color: #fff;
+  background-color: $color-primary;
+}
+
+.table-bordered {
+  border: 0;
+}
+
+.table-vertical-middle td {
+  vertical-align: middle !important;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+  background-color: #bdd6db;
+}
+
+.table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
+  background-color: #fff;
+}
+
+// end Tables
+
+.question {
+  font-weight: normal;
+}
+
+.question-title {
+  padding: 5px;
+  margin-top: 35px;
+  background-color: #dbdbdb;
+  border-radius: 4px;
+}
+
+.alert-info hr {
+  border-top-color: #dcdcdc;
+}
+
+a.btn-sort {
+  padding-left: 0;
+  color: #fff;
+  background-color: $color-primary;
+  border-color: $color-primary;
+  &:hover {
+    color: #fff;
+  }
+}
+
+@media all {
+  .page-break {
+    display: none;
+  }
+}
+
+@media print {
+  @page {
+    size: auto;
+    // this affects the margin in the printer settings
+    margin: 0;
+  }
+  .page-break {
+    display: block;
+    page-break-after: always;
+  }
+}

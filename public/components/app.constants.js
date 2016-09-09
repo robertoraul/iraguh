@@ -1,0 +1,21 @@
+angular.module('ira').constant('branchPermissionsEnum', {
+    CAN_READ: 'canRead',
+    CAN_WRITE: 'canWrite'
+}).constant('userPermissionsEnum', {
+    ADMIN: 'admin',
+    USER_ADMIN: 'user_admin',
+    USER: 'user'
+}).constant('branchEnum', {
+    SELLS: '56b2244c216dc6dc3657309d',
+    MAILING: '56b1e2c7e7eab67816d80206',
+    LABEL_GENERATION: '56d63b8f67384a0c1e442913',
+    PRINTING_OFFICE: '56d58673b40d32701d20f118'
+}).constant('subscriptionStateEnum', {
+    FINISHED: 'finished',
+    ACTIVE: 'active',
+    FUTURE: 'future',
+    CANCELED: 'canceled'
+}).constant('pendingDeliveriesStateEnum', {
+    SEND_TO_ADDRESS: 'sendToAddress',
+    INDIVIDUAL_RETIREMENT: 'individualRetirement'
+});

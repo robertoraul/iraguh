@@ -1,0 +1,11 @@
+**/.*/
+node_modules/
+bower_components/
+.tmp/
+coverage/
+dist/
+public/css/
+public/fonts/bootstrap
+public/fonts/font-awesome
+*.iml
+*.log

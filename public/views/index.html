@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <title>IRA</title>
+    <!-- build:css(bower_components) css/app.css -->
+    <link rel="stylesheet" href="../../bower_components/angular-loading-bar/build/loading-bar.min.css">
+    <!-- endbuild -->
+    <link rel="stylesheet" href="css/site.css">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body ng-app="ira">
+
+<header></header>
+
+<main ui-view></main>
+
+<footer ng-controller="FooterController as footer" class="row hidden-print">
+    <div class="row">
+        <div class="col-sm-6">
+                <span>
+                    {{footer.role}} {{footer.user.name}} {{footer.user.surname}}
+                    <br/>Version @version
+                </span>
+        </div>
+        <div class="col-sm-6 text-right" style="padding-top: 5px;">
+            <img src="images/logo-footer.png" alt="INDEC" title="INDEC"/>
+        </div>
+    </div>
+</footer>
+
+<!-- Modals -->
+<script type="text/ng-template" id="infoModal.html">
+    <div class="modal-header">
+        <div class="row">
+            <div class="col-sm-12 text-right">
+                <a ng-click="$ctrl.close()" class="btn">
+                    <span class="fa fa-times"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body">
+        <div class="row text-center">
+            <div class="col-sm-8 col-sm-offset-2">
+                {{::$ctrl.message}}
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-sm-12 text-right">
+                <button ng-click="$ctrl.close()" class="btn btn-primary">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="confirmModal.html">
+    <div class="modal-header">
+        <div class="row">
+            <div class="col-sm-12 text-right">
+                <a ng-click="$ctrl.close()" class="btn">
+                    <span class="fa fa-times"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body">
+        <div class="row text-center">
+            <div class="col-sm-8 col-sm-offset-2">
+                {{::$ctrl.message}}
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-2">
+                <button ng-click="$ctrl.accept()" class="btn btn-primary">Aceptar</button>
+                <button ng-click="$ctrl.close()" class="btn btn-danger">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="errorModal.html">
+    <div class="modal-header">
+        <div class="row">
+            <div class="col-sm-10">
+                <h3>¡Oh, no!</h3>
+            </div>
+            <div class="col-sm-2 text-right">
+                <a ng-click="$ctrl.close()" class="btn">
+                    <span class="fa fa-times"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body">
+        <p>
+            {{::$ctrl.message}}
+        </p>
+        <div ng-show="$ctrl.traceId">
+            <p>Ha ocurrido un error, fue registrado bajo el número de error: {{::$ctrl.traceId}}</p>
+            <p>Nuestros técnicos han sido notificados y van a estar solucionandolo a la brevedad.</p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-sm-12 text-right">
+                <button ng-click="$ctrl.close()" class="btn btn-primary">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</script>
+
+<!-- build:js({bower_components,public}) js/vendor.js -->
+<script src="angular/angular.min.js"></script>
+<script src="angular-i18n/angular-locale_es-ar.js"></script>
+<script src="angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="angular-loading-bar/build/loading-bar.min.js"></script>
+<script src="lodash/dist/lodash.min.js"></script>
+<!-- endbuild -->
+
+<!-- build:js(public) js/app.js -->
+<script src="../components/libs/lodash.module.js"></script>
+<script src="../components/blocks/confirmModal.service.js"></script>
+<script src="../components/blocks/httpInterceptor.service.js"></script>
+<script src="../components/blocks/infoModal.service.js"></script>
+
+<script src="../components/app.module.js"></script>
+<script src="../components/app.config.js"></script>
+<script src="../components/app.constants.js"></script>
+<script src="../components/app.run.js"></script>
+
+<script src="../components/common/index.js"></script>
+<script src="../components/common/dateTimeFormat.filter.js"></script>
+<script src="../components/common/datePicker.component.js"></script>
+<script src="../components/common/enterFocus.directive.js"></script>
+<script src="../components/common/ngRole.directive.js"></script>
+<script src="../components/common/select.directive.js"></script>
+
+<script src="components/events/index.js"></script>
+<script src="components/events/events.service.js"></script>
+<script src="components/events/events.component.js"></script>
+<script src="components/events/eventsEditor.component.js"></script>
+<script src="components/events/editDate.component.js"></script>
+
+<script src="../components/home/index.js"></script>
+<script src="../components/home/changePassword.component.js"></script>
+<script src="../components/home/footer.controller.js"></script>
+<script src="../components/home/header.component.js"></script>
+<script src="../components/home/home.component.js"></script>
+
+<script src="../components/logs/index.js"></script>
+<script src="../components/logs/dateFormat.filter.js"></script>
+<script src="../components/logs/logs.component.js"></script>
+<script src="../components/logs/logs.service.js"></script>
+
+<script src="../components/services/session.service.js"></script>
+
+<script src="../components/users/index.js"></script>
+<script src="../components/users/users.component.js"></script>
+<script src="../components/users/usersEditor.component.js"></script>
+<script src="../components/users/users.service.js"></script>
+<!-- endbuild -->
+<!-- bouild:fira -->
+<script src="components/fira/index.js"></script>
+<script src="components/fira/listado.component.js"></script>
+<script src="components/fira/fira.service.js"></script>
+
+<!-- endbuild -->
+
+<!-- build:remove -->
+<script src="../components/app.config.debug.js"></script>
+<script src="../components/app.run.debug.js"></script>
+<!-- endbuild -->
+</body>
+</html>

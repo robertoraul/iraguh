@@ -1,0 +1,31 @@
+header {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  .navbar {
+    min-height: 50px;
+    color: #fff;
+    background: $color-primary;
+    .navbar-brand {
+      padding: 6px 15px 0 10px;
+    }
+    .navbar-nav > li > a {
+      color: #fff;
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-sm) {
+  .navbar-nav .open .dropdown-menu {
+    background-color: #fff;
+  }
+}
+
+@media (max-width: 320px) {
+  .navbar-brand {
+    max-width: 100px;
+  }
+}

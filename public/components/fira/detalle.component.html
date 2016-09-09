@@ -1,0 +1,68 @@
+<div class="container">
+    <fieldset>
+        <h2>Detalle del Registro <strong>{{ $ctrl.registro.id }}</strong></h2>
+        <div class="form-group form-inline">
+            <label for="sector">Sector</label>
+            <p class="form-control-static" id="sector">{{$ctrl.registro.sector}}</p>
+            <label for="obsSector">Observaciones</label>
+            <p class="form-control-static" id="obsSector">{{$ctrl.registro.obsSector}}</p>
+        </div>
+        <div class="form-group form-inline">
+            <label for="nombreRegistro">Nombre del Registro</label>
+            <p class="form-control-static" id="nombreRegistro">{{$ctrl.registro.nombreRegistro}}</p>
+            <label for="obsNomRegistro">Observaciones</label>
+            <p class="form-control-static" id="obsNomRegistro">{{$ctrl.registro.obsNomRegistro}}</p>
+        </div>
+        <div class="form-group">
+            <label for="informatizado">Informatizado</label>
+            <p class="form-control-static" id="informatizado">{{$ctrl.registro.informatizado}}</p>
+            <label for="obsInformatizado">Observaciones</label>
+            <p class="form-control-static" id="obsInformatizado">{{$ctrl.registro.obsInformatizado}}</p>
+        </div>
+        <div class="form-group">
+            <label for="fechaAlta">Fecha de Alta</label>
+            <p class="form-control-static" id="fechaAlta">{{$ctrl.registro.fechaAlta}}</p>
+            <label for="obsFechaAlta">Observaciones</label>
+            <p class="form-control-static" id="obsFechaAlta">{{$ctrl.registro.obsFechaAlta}}</p>
+        </div>
+        <div class="form-group">
+            <label for="fechaBaja">Fecha de Baja</label>
+            <p class="form-control-static" id="fechaBaja">{{$ctrl.registro.fechaBaja}}</p>
+            <label for="obsFechaBaja">Observaciones</label>
+            <p class="form-control-static" id="obsFechaBaja">{{$ctrl.registro.obsFechaBaja}}</p>
+        </div>
+        <div class="form-group">
+            <label for="fechaModif">Fecha Modificacion</label>
+            <p class="form-control-static" id="fechaModif">{{$ctrl.registro.fechaModif}}</p>
+            <label for="obsFechaModif">Observaciones</label>
+            <p class="form-control-static" id="obsFechaModif">{{$ctrl.registro.obsFechaModif}}</p>
+        </div>
+        <div class="form-group">
+            <label for="nomApellido">Nombre y Apellido</label>
+            <p class="form-control-static" id="nomApellido">{{$ctrl.registro.nomApellido}}</p>
+            <label for="obsNomApellido">Observaciones</label>
+            <p class="form-control-static" id="obsNomApellido">{{$ctrl.registro.obsNomApellido}}</p>
+        </div>
+        <div class="form-group">
+            <label for="puestoOrg">Puesto</label>
+            <p class="form-control-static" id="puestoOrg">{{$ctrl.registro.puestoOrg}}</p>
+            <label for="obsPuestoOrg">Observaciones</label>
+            <p class="form-control-static" id="obsPuestoOrg">{{$ctrl.registro.obsPuestoOrg}}</p>
+        </div>
+        <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <p class="form-control-static" id="telefono">{{$ctrl.registro.telefono}}</p>
+            <label for="obsTelefono">Observaciones</label>
+            <p class="form-control-static" id="obsTelefono">{{$ctrl.registro.obsTelefono}}</p>
+        </div>
+        <div class="form-group">
+            <label for="email">E-Mail</label>
+            <p class="form-control-static" id="email">{{$ctrl.registro.email}}</p>
+            <label for="obsEmail">Observaciones</label>
+            <p class="form-control-static" id="obsEmail">{{ctrl.registro.obsEmail}}</p>
+        </div>
+    </fieldset>
+    <div>
+        <input type="button" onclick="history.back()" class="bottom" value="OK">
+    </div>
+</div>

@@ -1,0 +1,29 @@
+.chart {
+  width: 250px;
+  height: 200px;
+}
+
+.chart-legend, .bar-legend, .line-legend, .pie-legend, .radar-legend, .polararea-legend, .doughnut-legend {
+  margin-top: 5px;
+  text-align: left;
+  list-style-type: none;
+  li {
+    position: relative;
+    display: inline;
+    padding: 2px 8px 2px 28px;
+    margin-bottom: 4px;
+    font-size: smaller;
+    white-space: nowrap;
+    cursor: default;
+    border-radius: 5px;
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline;
+      width: 20px;
+      height: 20px;
+      border-radius: 10px;
+    }
+  }
+}

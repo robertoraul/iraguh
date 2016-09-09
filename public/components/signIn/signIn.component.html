@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row form-group">
+        <div class="col-sm-12 text-center">
+            <img src="images/logo.png" title="PIPO" alt="PIPO"/>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-12 text-center">
+            <h3><strong>Back-Office PIPO</strong></h3>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-12 text-center">
+            <h2>U.O.Y.E.P.</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 text-left">
+            <form class="form-signin" ng-submit="$ctrl.signIn()">
+                <h4>Inicie sesión</h4>
+                <input type="email" ng-model="$ctrl.email" enter-focus class="input-block-level" placeholder="Email"
+                       required>
+                <input type="password" ng-model="$ctrl.password" class="input-block-level" placeholder="Password"
+                       required>
+
+                <p ng-show="$ctrl.invalidLogin" class="red">
+                    E-mail o password no válidos.
+                </p>
+
+                <p ng-show="$ctrl.hasError" class="red">
+                    Ha ocurrido un error al tratar de iniciar sesión.
+                </p>
+                <p>
+                    <button class="btn btn-large btn-primary">Ingresar</button>
+                    <a ui-sref="signIn.passwordRecovery">Olvidé mi password</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>

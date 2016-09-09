@@ -1,0 +1,11 @@
+{
+  "extends": "./.eslintrc-base.json",
+  "env": {
+    "browser": false,
+    "node": false
+  },
+  "globals": {
+    "window": false,
+    "angular": false
+  }
+}

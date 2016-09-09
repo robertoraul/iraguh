@@ -1,0 +1,34 @@
+@import "bootstrap-overrides";
+@import "font-awesome-overrides";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "../../bower_components/components-font-awesome/scss/font-awesome";
+
+$color-primary: #2a3f54;
+$color-primary-hue1: #73879c;
+$color-secondary: #347172;
+$indec-green: #37b54a;
+$index-red: #d9534f;
+$indec-blue: #353192;
+$indec-cyan: #0290ce;
+$indec-magenta: #e00075;
+$indec-gray: #57575a;
+$btn-primary-bg: #2a3f54;
+
+//another type of blue =S
+$indec-society: #013d7c;
+
+h2 {
+  color: $color-secondary;
+}
+
+.red {
+  color: #f00;
+}
+
+.blue {
+  color: #00f;
+}
+
+.green {
+  color: #008000;
+}

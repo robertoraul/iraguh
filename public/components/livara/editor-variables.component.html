@@ -1,0 +1,53 @@
+<div class="container">
+    <form id="miForm" action="">
+        <div class="form-group">
+            <div id="etiquetas">
+                <label>{{ctrl.apartado}}</label>
+                <label>{{ctrl.nombreVariable}}</label>
+                <label>{{ctrl.fechaAltaVariable}}</label>
+                <label>{{ctrl.fechaBajaVariable}}</label>
+                <label>{{ctrl.fechaModificacionVariable}}</label>
+            </div>
+            <label for="apartado">Capítulo / Apartado</label>
+            <input ng-model="$ctrl.registro.apartado" value="$ctrl.registro.apartado" type="text" name="apartado" id="apartado">
+        </div>
+        <div class="form-group">
+            <label for="nombreVariable">Nombre de la Variable</label>
+            <input ng-model="$ctrl.registro.nombreVariable" value="$ctrl.registro.nombreVariable" type="text" name="nombreVariable" id="nombreVariable">
+        </div>
+        <div class="form-group">
+            <label for="fechaAltaVariable">Fecha Alta</label>
+            <input ng-model="$ctrl.registro.fechaAltaVariable" value="$ctrl.registro.fechaAltaVariable" type="text" name="fechaAltaVariable" id="fechaAltaVariable" >
+        </div>
+        <div class="form-group">
+            <label for="fechaBajaVariable">Fecha de Baja</label>
+            <input ng-model="$ctrl.registro.fechaBajaVariable" value="$ctrl.fechaBajaVariable" type="text" name="fechaBajaVariable" id="fechaBajaVariable">
+        </div>
+        <div class="form-group">
+            <label for="fechaModificacionVariable">Fecha Modificación</label>
+            <input ng-model="$ctrl.registro.fechaModificacionVariable" value="$ctrl.fechaModificacionVariable" type="text" name="fechaModificacionVariable" id="fechaModificacionVariable">
+        </div>
+        <div class="radio form-group">
+            <label>Específica</label>
+            <label>
+                <input type="radio" name="especifica" id="especifica1" value="1">SI
+            </label>
+            <label>
+                <input type="radio" name="especifica" id="especifica2" value="0">NO
+            </label>
+        </div>
+        <div>
+            <label for="unidadMedida">Unidad Medida</label>
+            <input ng-model="$ctrl.registro.unidadMedida" value="$ctrl.unidadMedida" type="text" name="unidadMedida" id="unidadMedida">
+        </div>
+        <div>
+            <label for="detalle">Detalle</label>
+            <textarea ng-model="$ctrl.registro.detalle" ng-value="$ctrl.detalle" name="detalle" id="detalle" cols="30" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <input type="button" onclick="history.back()" class="bottom" value="<-- Volver">
+            <input type="button" onclick="document.getElementById('miForm').reset()" class="bottom" value="Limpiar Formulario">
+            <input type="submit" class="bottom" value="Guardar">
+        </div>
+    </form>
+</div>

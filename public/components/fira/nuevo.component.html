@@ -1,0 +1,73 @@
+<div class="container">
+    <form id="miForm"action="nuevoRegistro">
+        <div class="container">
+            <fieldset>
+                <div class="form-group">
+                    <label for="sector">Sector</label>
+                    <input ng-model="$ctrl.sector" type="text" name="sector" id="sector">
+                    <label for="obsSector">Observaciones Sector</label>
+                    <textarea ng-model="$ctrl.obsSector" name="obsSector" id="obsSector" cols="30" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="nombreRegistro">Nombre del Registro</label>
+                    <input ng-model="$ctrl.nombreRegistro" type="text" name="nombreRegistro" id="nombreRegistro">
+                    <label for="obsNomRegistro">Observaciones Nombre</label>
+                    <textarea ng-model="$ctrl.obsNomRegistro" name="obsNomRegistro" id="obsNomRegistro" cols="30" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="informatizado">Informatizado</label>
+                    <input ng-model="$ctrl.informatizado"type="text" name="informatizado" id="informatizado">
+                    <label for="obsInformatizado">Observaciones</label>
+                    <textarea ng-model="$ctrl.obsInformatizado" name="obsInformatizado" id="obsInformatizado" cols="30" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="fechaAlta">Fecha de Alta</label>
+                    <input ng-model="$ctrl.fechaAlta" type="text" name="fechaAlta" id="fechaAlta">
+                    <label for="obsFechaAlta">Observaciones</label>
+                    <textarea ng-model="$ctrl.obsFechaAlta" name="obsFechaAlta" id="obsFechaAlta" cols="30" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="fechaBaja">Fecha de Baja</label>
+                    <input ng-model="$ctrl.fechaBaja" type="text" name="fechaBaja" id="fechaBaja">
+                    <label for="obsFechaBaja">Observaciones</label>
+                    <textarea ng-model="$ctrl.obsFechaBaja" name="obsFechaBaja" id="obsFechaBaja" cols="30" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="fechaModif">Fecha Modificacion</label>
+                    <input ng-model="$ctrl.fechaModif" type="text" name="fechaModif" id="fechaModif">
+                    <label for="obsFechaModif">Observaciones</label>
+                    <textarea ng-model="$ctrl.obsFechaModif" name="obsFechaModif" id="obsFechaModif" cols="30" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="nomApellido">Nombre y Apellido</label>
+                    <input ng-model="$ctrl.nomApellido" type="text" name="nomApellido" id="nomApellido">
+                    <label for="obsNomApellido">Observaciones</label>
+                    <textarea ng-model="$ctrl.obsNomApellido" name="obsNomApellido" id="obsNomApellido" cols="30" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="puestoOrg">Puesto</label>
+                    <input ng-model="$ctrl.puestoOrg" type="text" name="puestoOrg" id="puestoOrg">
+                    <label for="obsPuestoOrg">Observaciones</label>
+                    <textarea ng-model="$ctrl.obsPuestoOrg" name="obsPuestoOrg" id="obsPuestoOrg" cols="30" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono</label>
+                    <input ng-model="$ctrl.telefono" type="text" name="telefono" id="telefono">
+                    <label for="obsTelefono">Observaciones</label>
+                    <textarea ng-model="$ctrl.obsTelefono" name="obsTelefono" id="obsTelefono" cols="30" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-Mail</label>
+                    <input ng-model="$ctrl.email" type="text" name="email" id="email">
+                    <label for="obsEmail">E-Mail</label>
+                    <textarea ng-model="$ctrl.obsEmail" name="obsEmail" id="obsEmail" cols="30" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="button" onclick="history.back()" class="bottom" value="<-- Volver">
+                    <input type="button" onclick="document.getElementById('miForm').reset()" class="bottom" value="Limpiar Formulario">
+                    <input type="submit" class="bottom" value="Guardar">
+                </div>
+            </fieldset>
+        </div>
+    </form>
+</div>

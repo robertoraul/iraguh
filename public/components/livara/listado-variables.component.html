@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="form-inline">
+        <div>
+            <label for="nOrden">Número de Orden</label>
+            <p class="form-control-static" id="nOrden"> {{$ctrl.registro.id}}</p>
+            <label for="nombreRegistro">Nombre del Registro</label>
+            <p class="form-control-static" id="nombreRegistro">{{$ctrl.registro.nombreRegistro}}</p>
+        </div>
+    </div>
+    <div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Capitulo/Apartado/Sección</th>
+                <th>N° de orden</th>
+                <th>Nombre</th>
+                <th>Fecha de Alta</th>
+                <th>Fecha de Baja</th>
+                <th>Fecha de Modificación</th>
+                <th>Específica</th>
+                <th>Detalle</th>
+                <th>U. Medida</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="v in $ctrl.registro">
+                <td>{{v.apartado}}</td>
+                <td>{{v.id}}</td>
+                <td>{{v.nombreVariable}}</td>
+                <td>{{v.fechaAltaVariable}}</td>
+                <td>{{v.fechaBajaVariable}}</td>
+                <td>{{v.fechaModificacionVariable}}</td>
+                <td>{{v.especifica}}</td>
+                <td>{{v.detalle}}</td>
+                <td>{{v.unidadMedida}}</td>
+                <td>
+                    <a ui-sref="/livaraapl.editor({registro:v.id})">Editar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

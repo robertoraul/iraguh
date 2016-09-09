@@ -1,0 +1,37 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" ng-click="$ctrl.collapsed = !$ctrl.collapsed" class="navbar-toggle collapsed"
+                    data-toggle="collapse" aria-expanded="false">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/">
+                <img src="/images/brand.png" title="indec" alt="indec"/>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" uib-collapse="$ctrl.collapsed">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a ui-sref="users.index" ng-class="{selected: $ctrl.location == '/users'}">
+                        <span class="fa fa-users"></span> Usuarios
+                    </a>
+                </li>
+                <li>
+                    <a ui-sref="events.index" ui-sref-active="active">
+                        <span class="fa fa-calendar"></span> Eventos
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/signout" title="Cerrar sesión">
+                        <span class="fa fa-sign-out"></span>
+                        Cerrar sesión
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

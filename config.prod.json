@@ -1,0 +1,49 @@
+{
+  "mode": "prod",
+  "crypto": {
+    "key": "glewqkCK30UqMFoid7wN9cm0rKNhR3OE",
+    "iv": "pa81H4B2UIw3Y48g",
+    "encoding": "base64"
+  },
+  "server": {
+    "port": 3150,
+    "request": {
+      "bodyParser": {
+        "extended": true
+      }
+    }
+  },
+  "connectionString": "mongodb://172.26.67.114/ira?safe=true",
+  "auth": {
+    "loginPage": "/signin",
+    "sessionSecret": "70WvD81EikZeviQs8deG9nPuVv956Z1fVezr3R3lBHyv4GyMN",
+    "masterKey": "pass"
+  },
+  "email": {
+    "name": "indec",
+    "host": "indec2.mecon.ar",
+    "auth": {
+      "user": "eticontacto",
+      "pass": "QI37lae8tF1m"
+    }
+  },
+  "winston": {
+    "mongodb": {
+      "level": "error",
+      "db": "mongodb://172.26.67.114/ira?safe=true",
+      "capped": true,
+      "handleExceptions": true
+    },
+    "mail": {
+      "level": "error",
+      "from": "ironalert@indec.mecon.gov.ar",
+      "to": "ironteam@indec.mecon.gov.ar",
+      "host": "indec2.mecon.ar",
+      "username": "eticontacto",
+      "password": "QI37lae8tF1m",
+      "subject": "[IRA] {{level}} {{msg}}",
+      "html": true,
+      "handleExceptions": true
+    }
+  }
+}

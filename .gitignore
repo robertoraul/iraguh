@@ -9,3 +9,4 @@ public/fonts/bootstrap
 public/fonts/font-awesome
 *.iml
 *.log
+.bowerrc

@@ -4,13 +4,24 @@ var mongoose = require('mongoose'),
 
 var model = module.exports;
 
+model.enums = {
+    userPermission: {
+        ADMIN: 'admin',
+        USER_ADMIN: 'user_admin',
+        USER: 'user'
+    }
+};
+
 model.User = mongoose.model('User', new Schema({
-    email: {type: String, required: true},
+    _id: {type: String},
     password: {type: String, required: true},
+    email: {type: String, required: true},
     name: {type: String, required: true},
     surname: {type: String, required: true},
     disabled: Boolean,
+    permissions: [{type: String, ref: model.enums.userPermission}]
 }, {collection: 'users', timestamps: true}));
+
 
 /*
 model.Branch = mongoose.model('Branch', new Schema({
@@ -20,7 +31,9 @@ model.Branch = mongoose.model('Branch', new Schema({
     email: {type: String, required: true},
     secretary: {type: String, required: true}
 }, {collection: 'branches', timestamps: true}));
+*/
 
+/*
 model.Authority = mongoose.model('Authority', new Schema({
     jobTitle: {type: String, required: true},
     name: {type: String, required: true}

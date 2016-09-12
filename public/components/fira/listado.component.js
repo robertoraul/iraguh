@@ -6,7 +6,7 @@ angular.module('ira.fira').component('fira', {
     controller: ['firaService', function (firaService) {
         var $ctrl = this;
 
-        $ctrl.$onInit = () => firaService.fetch().then(registros => $ctrl.registros = registros);
+        $ctrl.$onInit = () => firaService.fetch().then(data => $ctrl.registros = data);
 
 
     }]

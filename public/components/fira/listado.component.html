@@ -1,41 +1,39 @@
 
 <div class="container">
-{{$ctrl.registros}}
-    <table class="table table-bordered">
-
+    <table class="table table-striped table-responsive table-vertical-middle">
         <head>
             <tr>
-                <th>N°de Orden</th>
+               <!-- <th>N°de Orden</th> -->
                 <th>Sector</th>
-               <th>Nombre Registro </th>
-                <!--                 <th>Informatizado</th>
-                                <th>Fecha Alta</th>
-                                <th>Fecha Baja</th>
-                                <th>Fecha Modificación</th>
-                                <th>Nombre Apellido</th>
-                                <th>Puesto en la Org</th>
-                                <th>Teléfono</th>
-                                <th>E-Mail</th>
-                                <th></th>-->
+                <th>Nombre Registro </th>
+                <th>Informatizado</th>
+                <th>Fecha Alta</th>
+                <th>Fecha Baja</th>
+                <th>Fecha Modificación</th>
+                <th>Nombre Apellido</th>
+                <th>Puesto en la Org</th>
+                <th>Teléfono</th>
+                <th>E-Mail</th>
+                <!-- <th></th>-->
             </tr>
         </head>
         <tbody>
         <tr ng-repeat="reg in $ctrl.registros">
             <!--<td>{{reg.id}}</td>-->
-            <td>{{reg.sector}}</td>
-            <td>{{reg.nombreRegistro}}</td>
-            <td>{{reg.informatizado}}</td>
-<!--            <td>{{reg.fechaAlta}}</td>
-            <td>{{reg.fechaBaja}}</td>
-            <td>{{reg.fechaModif}}</td>
-            <td>{{reg.nomApellido}}</td>
-            <td>{{reg.puestoOrg}}</td>
-            <td>{{reg.telefono}}</td>
-            <td>{{reg.email}}</td>-->
-<!--            <td>
+            <td>{{::reg.sector}}</td>
+            <td>{{::reg.nombreRegistro}}</td>
+            <td>{{::reg.informatizado}}</td>
+            <td>{{::reg.fechaAltaReg}}</td>
+            <td>{{::reg.fechaBajaReg}}</td>
+            <td>{{::reg.fechaModifReg}}</td>
+            <td>{{::reg.nomApellido}}</td>
+            <td>{{::reg.puestoOrg}}</td>
+            <td>{{::reg.telefono}}</td>
+            <td>{{::reg.email}}</td>
+<!--        <td>
                 <a ui-sref="/firaapl.detalle({registro:reg.id})">Detalle</a>
-            </td>
-        </tr>-->
+            </td> -->
+        </tr>
         </tbody>
     </table>
 <!--    <div>

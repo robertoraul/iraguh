@@ -1,9 +1,9 @@
 
 <div class="container">
     <table class="table table-striped table-responsive table-vertical-middle">
-        <head>
+        <thead>
             <tr>
-               <!-- <th>N°de Orden</th> -->
+                <th>N°de Orden</th>
                 <th>Sector</th>
                 <th>Nombre Registro </th>
                 <th>Informatizado</th>
@@ -14,12 +14,12 @@
                 <th>Puesto en la Org</th>
                 <th>Teléfono</th>
                 <th>E-Mail</th>
-                <!-- <th></th>-->
+                 <th></th>
             </tr>
-        </head>
+        </thead>
         <tbody>
         <tr ng-repeat="reg in $ctrl.registros">
-            <!--<td>{{reg.id}}</td>-->
+            <td>{{::reg._id}}</td>
             <td>{{::reg.sector}}</td>
             <td>{{::reg.nombreRegistro}}</td>
             <td>{{::reg.informatizado}}</td>
@@ -30,13 +30,16 @@
             <td>{{::reg.puestoOrg}}</td>
             <td>{{::reg.telefono}}</td>
             <td>{{::reg.email}}</td>
-<!--        <td>
-                <a ui-sref="/firaapl.detalle({registro:reg.id})">Detalle</a>
-            </td> -->
+            <td>
+                <a ui-sref="fira.detalle({ id: reg._id})">Detalle</a>
+            </td>
         </tr>
         </tbody>
     </table>
 <!--    <div>
         <input type="button" ui-sref="/firaapl.new" value="Nuevo Registro">
+    </div>-->
+<!--    <div>
+        Estás en: <span>{{$ctrl.registros}}</span>
     </div>-->
 </div>

@@ -1,6 +1,9 @@
 <div class="container">
+    <div>
+        Estás en: <span>{{$ctrl.registro}}</span>
+    </div>
     <fieldset>
-        <h2>Detalle del Registro <strong>{{ $ctrl.registro.id }}</strong></h2>
+        <h2>Detalle del Registro <strong>{{ $ctrl.registro._id }}</strong></h2>
         <div class="form-group form-inline">
             <label for="sector">Sector</label>
             <p class="form-control-static" id="sector">{{$ctrl.registro.sector}}</p>
@@ -21,21 +24,21 @@
         </div>
         <div class="form-group">
             <label for="fechaAlta">Fecha de Alta</label>
-            <p class="form-control-static" id="fechaAlta">{{$ctrl.registro.fechaAlta}}</p>
+            <p class="form-control-static" id="fechaAlta">{{$ctrl.registro.fechaAltaReg}}</p>
             <label for="obsFechaAlta">Observaciones</label>
-            <p class="form-control-static" id="obsFechaAlta">{{$ctrl.registro.obsFechaAlta}}</p>
+            <p class="form-control-static" id="obsFechaAlta">{{$ctrl.registro.obsFechaAltaReg}}</p>
         </div>
         <div class="form-group">
             <label for="fechaBaja">Fecha de Baja</label>
-            <p class="form-control-static" id="fechaBaja">{{$ctrl.registro.fechaBaja}}</p>
+            <p class="form-control-static" id="fechaBaja">{{$ctrl.registro.fechaBajaReg}}</p>
             <label for="obsFechaBaja">Observaciones</label>
-            <p class="form-control-static" id="obsFechaBaja">{{$ctrl.registro.obsFechaBaja}}</p>
+            <p class="form-control-static" id="obsFechaBaja">{{$ctrl.registro.obsFechaBajaReg}}</p>
         </div>
         <div class="form-group">
             <label for="fechaModif">Fecha Modificacion</label>
-            <p class="form-control-static" id="fechaModif">{{$ctrl.registro.fechaModif}}</p>
+            <p class="form-control-static" id="fechaModif">{{$ctrl.registro.fechaModifReg}}</p>
             <label for="obsFechaModif">Observaciones</label>
-            <p class="form-control-static" id="obsFechaModif">{{$ctrl.registro.obsFechaModif}}</p>
+            <p class="form-control-static" id="obsFechaModif">{{$ctrl.registro.obsFechaModifReg}}</p>
         </div>
         <div class="form-group">
             <label for="nomApellido">Nombre y Apellido</label>
@@ -62,6 +65,10 @@
             <p class="form-control-static" id="obsEmail">{{ctrl.registro.obsEmail}}</p>
         </div>
     </fieldset>
+    <div ng-repeat="var in $ctrl.registro.variables">
+        {{var}}
+    </div>
+
     <div>
         <input type="button" onclick="history.back()" class="bottom" value="OK">
     </div>

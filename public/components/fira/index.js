@@ -12,19 +12,22 @@ angular.module('ira.fira', ['ira.core']).config(['$stateProvider', function ($st
             url: '',
             template: '<fira/>'
         })
-/*        .state('fira.detalle', {
-            url:'/detalle/:id',
-            template:'<fira-detalle/>'
-        })*/
-/*        .state('fira.new', {
-            url: '/new',
-            template: '<fira-editor/>'
-        })*/
-/*        .state('fira.editor', {
+        .state('fira.detalle', {
             url: '/:id',
-            template: '<fira-editor user="$resolve.fira"/>',
+            template: '<fira-detalle registro="$resolve.registro"/>',
             resolve: {
-                user: ['$stateParams', 'firaService', ($stateParams, firaService) => firaService.find($stateParams.id)]
+                registro: ['$stateParams', 'firaService', ($stateParams, firaService) => firaService.find($stateParams.id)]
             }
-        });*/
+        });
+    /*        .state('fira.new', {
+     url: '/new',
+     template: '<fira-editor/>'
+     })*/
+    /*        .state('fira.editor', {
+     url: '/:id',
+     template: '<fira-editor user="$resolve.fira"/>',
+     resolve: {
+     user: ['$stateParams', 'firaService', ($stateParams, firaService) => firaService.find($stateParams.id)]
+     }
+     });*/
 }]);

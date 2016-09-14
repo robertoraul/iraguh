@@ -1,43 +1,39 @@
 
 <div class="container">
-    <table class="table table-bordered">
-
-        <head>
+    <table class="table table-striped table-responsive table-vertical-middle">
+        <thead>
             <tr>
                 <th>N°de Orden</th>
                 <th>Sector</th>
-               <th>Nombre Registro </th>
-                <!--                 <th>Informatizado</th>
-                                <th>Fecha Alta</th>
-                                <th>Fecha Baja</th>
-                                <th>Fecha Modificación</th>
-                                <th>Nombre Apellido</th>
-                                <th>Puesto en la Org</th>
-                                <th>Teléfono</th>
-                                <th>E-Mail</th>
-                                <th></th>-->
+                <th>Nombre Registro </th>
+                <th>Informatizado</th>
+                <th>Fecha Alta</th>
+                <th>Fecha Baja</th>
+                <th>Fecha Modificación</th>
+                <th>Nombre Apellido</th>
+                <th>Puesto en la Org</th>
+                <th>Teléfono</th>
+                <th>E-Mail</th>
+                 <th></th>
             </tr>
-        </head>
+        </thead>
         <tbody>
-        <tr ng-repeat="reg in $ctrl.registros">
-            <!--<td>{{reg.id}}</td>-->
-            <td>{{reg.sector}}</td>
-            <td>{{reg.nombreRegistro}}</td>
-            <td>{{reg.informatizado}}</td>
-<!--            <td>{{reg.fechaAlta}}</td>
-            <td>{{reg.fechaBaja}}</td>
-            <td>{{reg.fechaModif}}</td>
-            <td>{{reg.nomApellido}}</td>
-            <td>{{reg.puestoOrg}}</td>
-            <td>{{reg.telefono}}</td>
-            <td>{{reg.email}}</td>-->
-<!--            <td>
-                <a ui-sref="/firaapl.detalle({registro:reg.id})">Detalle</a>
+        <tr ng-repeat="registro in $ctrl.registros">
+            <td>{{::registro._id}}</td>
+            <td>{{::registro.sector}}</td>
+            <td>{{::registro.nombreRegistro}}</td>
+            <td>{{::registro.informatizado}}</td>
+            <td>{{::registro.fechaAltaReg}}</td>
+            <td>{{::registro.fechaBajaReg}}</td>
+            <td>{{::registro.fechaModifReg}}</td>
+            <td>{{::registro.nomApellido}}</td>
+            <td>{{::registro.puestoOrg}}</td>
+            <td>{{::registro.telefono}}</td>
+            <td>{{::registro.email}}</td>
+            <td>
+                <a ui-sref="fira.detalle({id: registro._id})">Detalle</a>
             </td>
-        </tr>-->
+        </tr>
         </tbody>
     </table>
-<!--    <div>
-        <input type="button" ui-sref="/firaapl.new" value="Nuevo Registro">
-    </div>-->
 </div>

@@ -1,17 +1,18 @@
-/**
- * Created by rcard on 09/09/2016.
- */
-let model = global.app.model;
+var model = global.app.model;
 
 module.exports = router => {
     router.get('/', (req, res, next) =>
-        model.Registro.find({}).exec().then(
-            registros => {
-   //             console.log(registros);
-                res.send(registros)},
-
+        model.Registro.find({}).populate('variables').exec().then(
+            registros => res.send(registros),
             err => next(Error.create('nada', {}, err))
         )
-  );
+    );
+
+    router.get('/:id', (req, res, next) => {
+            model.Registro.findById(req.params.id).populate('variables').exec().then(
+            registro => res.send(registro),
+            err => next(Error.create('No encontrado!!.', {_id: req.params.id}, err))
+           )
+    });
     return router;
 };

@@ -13,7 +13,6 @@ model.enums = {
 };
 
 model.User = mongoose.model('User', new Schema({
-// _id is the username
     _id: {type: String},
     password: {type: String, required: true},
     email: {type: String, required: true},
@@ -26,7 +25,7 @@ model.User = mongoose.model('User', new Schema({
 model.Registro = mongoose.model('Registro', new Schema({
     sector: {type: String, required: true},
     nombreRegistro: {type: String, required: true},
-    informatizado: {type: Boolean },
+    informatizado: {type: Boolean},
     objetivoRegistro: {type: String},
     nomApellido: {type: String, required: true},
     puestoOrg: {type: String},
@@ -51,19 +50,21 @@ model.Registro = mongoose.model('Registro', new Schema({
     obsFechaAltaReg: {type: String},
     obsFechaModifReg: {type: String},
     obsFechaBajaReg: {type: String},
-    activo: {type: Boolean}
+    activo: {type: Boolean},
+    variables: [{type: ObjectId, ref: 'Variable', required: true}]
 }, {collection: 'registros', timestamps: true}));
 
-    model.Variable = mongoose.model('Variable', new Schema({
-        apartado:{type: String, required: true},
-        variableNro: {type: Number},
-        nombreVariable:{type: String, required: true},
-        fechaAltaVariable: {type: Date},
-        fechaModificacionVariable: {type: Date},
-        fechaBajaVariable: {type: Date},
-        especifica: {type: Boolean},
-        detalle: {type: String},
-        unidadMedida: {type: String},
-    activo:{type: Boolean}
-},{collection: 'variables', timestamps: true}));
+model.Variable = mongoose.model('Variable', new Schema({
+    nombreRegistro: {type: String},
+    apartado: {type: String, required: true},
+    variableNro: {type: Number},
+    nombreVariable: {type: String, required: true},
+    fechaAltaVariable: {type: Date},
+    fechaModificacionVariable: {type: Date},
+    fechaBajaVariable: {type: Date},
+    especifica: {type: Boolean},
+    detalle: {type: String},
+    unidadMedida: {type: String},
+    activo: {type: Boolean}
+}, {collection: 'variables', timestamps: true}));
 model.Error = mongoose.model('Error', new Schema({}, {collection: 'logs.errors'}));

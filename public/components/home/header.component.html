@@ -13,19 +13,14 @@
         </div>
         <div class="collapse navbar-collapse" uib-collapse="$ctrl.collapsed">
             <ul class="nav navbar-nav">
-                <li>
-                    <a ui-sref="users.index" ng-class="{selected: $ctrl.location == '/users'}">
+                <li ui-sref-active="active">
+                    <a ui-sref="users.index">
                         <span class="fa fa-users"></span> Usuarios
                     </a>
                 </li>
-                <li>
-                    <a ui-sref="events.index">
-                        <span class="fa fa-calendar"></span> Eventos
-                    </a>
-                </li>
-                <li>
+                <li ui-sref-active="active">
                     <a ui-sref="fira.index">
-                        <span class="fa fa-file-image-o"></span> Registros
+                        <span class="fa fa-file-o"></span> Registros
                     </a>
                 </li>
             </ul>

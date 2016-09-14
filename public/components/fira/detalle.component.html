@@ -15,25 +15,25 @@
         </div>
         <div class="form-group">
             <label for="informatizado">Informatizado</label>
-            <p class="form-control-static" id="informatizado">{{$ctrl.registro.informatizado}}</p>
+            <p class="form-control-static" id="informatizado">{{$ctrl.registro.informatizado | yesNo}}</p>
             <label for="obsInformatizado">Observaciones</label>
             <p class="form-control-static" id="obsInformatizado">{{$ctrl.registro.obsInformatizado}}</p>
         </div>
         <div class="form-group">
             <label for="fechaAlta">Fecha de Alta</label>
-            <p class="form-control-static" id="fechaAlta">{{$ctrl.registro.fechaAltaReg}}</p>
+            <p class="form-control-static" id="fechaAlta">{{$ctrl.registro.fechaAltaReg | date}}</p>
             <label for="obsFechaAlta">Observaciones</label>
             <p class="form-control-static" id="obsFechaAlta">{{$ctrl.registro.obsFechaAltaReg}}</p>
         </div>
         <div class="form-group">
             <label for="fechaBaja">Fecha de Baja</label>
-            <p class="form-control-static" id="fechaBaja">{{$ctrl.registro.fechaBajaReg}}</p>
+            <p class="form-control-static" id="fechaBaja">{{$ctrl.registro.fechaBajaReg | date}}</p>
             <label for="obsFechaBaja">Observaciones</label>
             <p class="form-control-static" id="obsFechaBaja">{{$ctrl.registro.obsFechaBajaReg}}</p>
         </div>
         <div class="form-group">
             <label for="fechaModif">Fecha Modificacion</label>
-            <p class="form-control-static" id="fechaModif">{{$ctrl.registro.fechaModifReg}}</p>
+            <p class="form-control-static" id="fechaModif">{{$ctrl.registro.fechaModifReg | date}}</p>
             <label for="obsFechaModif">Observaciones</label>
             <p class="form-control-static" id="obsFechaModif">{{$ctrl.registro.obsFechaModifReg}}</p>
         </div>
@@ -86,13 +86,13 @@
                         <td>{{::variable.nombreRegistro}}</td>
                         <td>{{::variable.apartado}}</td>
                         <td>{{::variable.nombreVariable}}</td>
-                        <td>{{::variable.fechaAltaVariable}}</td>
-                        <td>{{::variable.fechaBajaVariable}}</td>
-                        <td>{{::variable.fechaModificacionVariable}}</td>
+                        <td>{{::variable.fechaAltaVariable | date}}</td>
+                        <td>{{::variable.fechaBajaVariable | date}}</td>
+                        <td>{{::variable.fechaModificacionVariable | date}}</td>
                         <td>{{::variable.detalle}}</td>
                         <td>{{::variable.unidadMedida}}</td>
-                        <td>{{::variable.especifica}}</td>
-                        <td>{{::variable.activo}}</td>
+                        <td>{{::variable.especifica | yesNo}}</td>
+                        <td>{{::variable.activo | yesNo}}</td>
                     </tr>
                 </tbody>
             </table>

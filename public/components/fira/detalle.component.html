@@ -62,10 +62,42 @@
             <p class="form-control-static" id="obsEmail">{{ctrl.registro.obsEmail}}</p>
         </div>
     </fieldset>
-    <div ng-repeat="var in $ctrl.registro.variables">
-        {{var}}
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-striped table-responsive table-vertical-middle">
+                <thead>
+                    <tr>
+                        <th>Número de variable</th>
+                        <th>Registro</th>
+                        <th>Apartado</th>
+                        <th>Variable</th>
+                        <th>Fecha de alta</th>
+                        <th>Fecha de baja</th>
+                        <th>Fecha de modificación</th>
+                        <th>Detalle</th>
+                        <th>Unidad de medida</th>
+                        <th>Específica</th>
+                        <th>Activa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="variable in $ctrl.registro.variables">
+                        <td>{{::variable.variableNro}}</td>
+                        <td>{{::variable.nombreRegistro}}</td>
+                        <td>{{::variable.apartado}}</td>
+                        <td>{{::variable.nombreVariable}}</td>
+                        <td>{{::variable.fechaAltaVariable}}</td>
+                        <td>{{::variable.fechaBajaVariable}}</td>
+                        <td>{{::variable.fechaModificacionVariable}}</td>
+                        <td>{{::variable.detalle}}</td>
+                        <td>{{::variable.unidadMedida}}</td>
+                        <td>{{::variable.especifica}}</td>
+                        <td>{{::variable.activo}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-
     <div>
         <input type="button" onclick="history.back()" class="bottom" value="OK">
     </div>

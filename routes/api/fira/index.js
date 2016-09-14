@@ -5,9 +5,9 @@ let model = global.app.model;
 
 module.exports = router => {
     router.get('/', (req, res, next) =>
-        model.Registro.find({}).populate('variable').exec().then(
+        model.Registro.find({}).exec().then(
             registros => {
-                console.log(registros);
+   //             console.log(registros);
                 res.send(registros)},
 
             err => next(Error.create('nada', {}, err))

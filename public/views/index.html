@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>IRA</title>
     <!-- build:css(bower_components) css/app.css -->
-    <link rel="stylesheet" href="../../bower_components/angular-loading-bar/build/loading-bar.min.css">
+    <link rel="stylesheet" href="angular-loading-bar/build/loading-bar.min.css">
     <!-- endbuild -->
     <link rel="stylesheet" href="css/site.css">
     <meta name="viewport"
@@ -16,7 +16,7 @@
 
 <main ui-view></main>
 
-<footer ng-controller="FooterController as footer" class="row hidden-print">
+<footer ng-controller="footerController as footer" class="row hidden-print">
     <div class="row">
         <div class="col-sm-6">
                 <span>
@@ -139,12 +139,6 @@
 <script src="../components/common/enterFocus.directive.js"></script>
 <script src="../components/common/ngRole.directive.js"></script>
 <script src="../components/common/select.directive.js"></script>
-
-<script src="components/events/index.js"></script>
-<script src="components/events/events.service.js"></script>
-<script src="components/events/events.component.js"></script>
-<script src="components/events/eventsEditor.component.js"></script>
-<script src="components/events/editDate.component.js"></script>
 
 <script src="../components/home/index.js"></script>
 <script src="../components/home/changePassword.component.js"></script>

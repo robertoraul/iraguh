@@ -4,102 +4,25 @@ var mongoose = require('mongoose'),
 
 var model = module.exports;
 
+model.enums = {
+    userPermission: {
+        ADMIN: 'admin',
+        USER_ADMIN: 'user_admin',
+        USER: 'user'
+    }
+};
+
 model.User = mongoose.model('User', new Schema({
-    email: {type: String, required: true},
+// _id is the username
+    _id: {type: String},
     password: {type: String, required: true},
+    email: {type: String, required: true},
     name: {type: String, required: true},
     surname: {type: String, required: true},
     disabled: Boolean,
+    permissions: [{type: String, ref: model.enums.userPermission}]
 }, {collection: 'users', timestamps: true}));
 
-/*
-model.Branch = mongoose.model('Branch', new Schema({
-    name: {type: String, required: true},
-    address: {type: String, required: true},
-    telephone: {type: String, required: true},
-    email: {type: String, required: true},
-    secretary: {type: String, required: true}
-}, {collection: 'branches', timestamps: true}));
-
-model.Authority = mongoose.model('Authority', new Schema({
-    jobTitle: {type: String, required: true},
-    name: {type: String, required: true}
-}, {collection: 'authorities', timestamps: true}));
-
-model.Course = mongoose.model('Course', new Schema({
-    name: {type: String, required: true},
-    shortDescription: {type: String, required: true},
-    description: {type: String, required: true},
-    video: {type: String, required: true},
-    duration: {type: Number, required: true},
-    branch: {type: ObjectId, ref: 'Branch'},
-    speciality: {type: String}
-}, {collection: 'courses', timestamps: true}));
-
-model.Zone = mongoose.model('Zone', new Schema({
-    name: {type: String, required: true}
-}, {collection: 'zones', timestamps: true}));
-
-
-model.Hotel = mongoose.model('Hotel', new Schema({
-    name: {type: String, required: true},
-    address: {type: String, required: true},
-    zone: {type: ObjectId, ref: 'Zone', required: true},
-    description: {type: String},
-    pictures: [{type: String}],
-    prices: [{
-        name: {type: String},
-        price: {type: Number}
-    }]
-}, {collection: 'hotels', timestamps: true}));
-
-model.RecreationalCenter = mongoose.model('RecreationalCenter', new Schema({
-    name: {type: String, required: true},
-    address: {type: String, required: true},
-    zone: {type: ObjectId, ref: 'Zone', required: true},
-    description: {type: String},
-    video: {type: String},
-    pictures: [{type: String}],
-    prices: [{
-        name: {type: String},
-        price: {type: Number}
-    }]
-}, {collection: 'recreationalCenters', timestamps: true}));
-
-model.Benefit = mongoose.model('Benefit', new Schema({
-    name: {type: String, required: true},
-    description: {type: String},
-    requirements: {type: String}
-}, {collection: 'benefits', timestamps: true}));
-
-
-model.Speciality = mongoose.model('Speciality', new Schema({
-    name: {type: String, required: true}
-}, {collection: 'specialities', timestamps: true}));
-
-model.Medic = mongoose.model('Medic', new Schema({
-    name: {type: String, required: true},
-    speciality: {type: ObjectId, ref: 'Speciality', required: true},
-    address: {type: String, required: true},
-    telephone: {type: String, required: true},
-    zone: {type: ObjectId, ref: 'Zone', required: true},
-
-}, {collection: 'Medics', timestamps: true}));
-
-model.Event = mongoose.model('Event', new Schema({
-    title: {type: String, required: true},
-    dates: [{
-        name: {type: String},
-        date:  {type: Date, required: true},
-        place: {type: String, required: true}
-    }],
-    description: {type: String, required: true},
-    mainPicture: {type: String, required: true},
-    expirationDate:  {type: Date},
-    pictures: [{type: String}],
-    deleted: {type: Boolean}
-}, {collection: 'events', timestamps: true}));
-*/
 model.Registro = mongoose.model('Registro', new Schema({
     sector: {type: String, required: true},
     nombreRegistro: {type: String, required: true},
@@ -128,10 +51,7 @@ model.Registro = mongoose.model('Registro', new Schema({
     obsFechaAltaReg: {type: String},
     obsFechaModifReg: {type: String},
     obsFechaBajaReg: {type: String},
-    activo: {type: Boolean},
-    variables:[{
-        variable:{type: ObjectId, ref:'variable', required: true}
-    }]
+    activo: {type: Boolean}
 }, {collection: 'registros', timestamps: true}));
 
     model.Variable = mongoose.model('Variable', new Schema({

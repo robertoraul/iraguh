@@ -114,7 +114,6 @@ model.User = mongoose.model('User', new Schema({
  }, {collection: 'events', timestamps: true}));
  */
 model.Registro = mongoose.model('Registro', new Schema({
-    _id: {type: ObjectId},
     sector: {type: String, required: true},
     nombreRegistro: {type: String, required: true},
     informatizado: {type: Boolean},
@@ -143,13 +142,10 @@ model.Registro = mongoose.model('Registro', new Schema({
     obsFechaModifReg: {type: String},
     obsFechaBajaReg: {type: String},
     activo: {type: Boolean},
-    variables: [{
-        variable: {type: ObjectId, ref: 'Variable', required: true}
-    }]
+    variables: [{type: ObjectId, ref: 'Variable', required: true}]
 }, {collection: 'registros', timestamps: true}));
 
 model.Variable = mongoose.model('Variable', new Schema({
-    _id: {type: ObjectId},
     nombreRegistro: {type: String},
     apartado: {type: String, required: true},
     variableNro: {type: Number},

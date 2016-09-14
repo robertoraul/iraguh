@@ -18,20 +18,20 @@
             </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="reg in $ctrl.registros">
-            <td>{{::reg._id}}</td>
-            <td>{{::reg.sector}}</td>
-            <td>{{::reg.nombreRegistro}}</td>
-            <td>{{::reg.informatizado}}</td>
-            <td>{{::reg.fechaAltaReg}}</td>
-            <td>{{::reg.fechaBajaReg}}</td>
-            <td>{{::reg.fechaModifReg}}</td>
-            <td>{{::reg.nomApellido}}</td>
-            <td>{{::reg.puestoOrg}}</td>
-            <td>{{::reg.telefono}}</td>
-            <td>{{::reg.email}}</td>
+        <tr ng-repeat="registro in $ctrl.registros">
+            <td>{{::registro._id}}</td>
+            <td>{{::registro.sector}}</td>
+            <td>{{::registro.nombreRegistro}}</td>
+            <td>{{::registro.informatizado}}</td>
+            <td>{{::registro.fechaAltaReg}}</td>
+            <td>{{::registro.fechaBajaReg}}</td>
+            <td>{{::registro.fechaModifReg}}</td>
+            <td>{{::registro.nomApellido}}</td>
+            <td>{{::registro.puestoOrg}}</td>
+            <td>{{::registro.telefono}}</td>
+            <td>{{::registro.email}}</td>
             <td>
-                <a ui-sref="fira.detalle({ id: reg._id})">Detalle</a>
+                <a ui-sref="fira.detalle({id: registro._id})">Detalle</a>
             </td>
         </tr>
         </tbody>

@@ -1,9 +1,6 @@
 <div class="container">
-    <div>
-        Estás en: <span>{{$ctrl.registro}}</span>
-    </div>
     <fieldset>
-        <h2>Detalle del Registro <strong>{{ $ctrl.registro._id }}</strong></h2>
+        <h2>Detalle del Registro <strong>{{ $ctrl.registro.nombreRegistro }}</strong></h2>
         <div class="form-group form-inline">
             <label for="sector">Sector</label>
             <p class="form-control-static" id="sector">{{$ctrl.registro.sector}}</p>

@@ -1,6 +1,3 @@
-/**
- * Created by rcard on 08/09/2016.
- */
 angular.module('ira.fira', ['ira.core']).config(['$stateProvider', function ($stateProvider) {
     $stateProvider
         .state('fira', {

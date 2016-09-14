@@ -9,10 +9,10 @@ module.exports = router => {
     );
 
     router.get('/:id', (req, res, next) => {
-        model.Registro.findById(req.params.id).populate('variables').exec().then(
+            model.Registro.findById(req.params.id).populate('variables').exec().then(
             registro => res.send(registro),
             err => next(Error.create('No encontrado!!.', {_id: req.params.id}, err))
-        )
+           )
     });
     return router;
 };

@@ -15,11 +15,11 @@ angular.module('ira.fira', ['ira.core']).config(['$stateProvider', function ($st
             resolve: {
                 registro: ['$stateParams', 'firaService', ($stateParams, firaService) => firaService.find($stateParams.id)]
             }
+        })
+        .state('fira.new', {
+            url: '/new',
+            template: '<fira-editor/>'
         });
-    /*        .state('fira.new', {
-     url: '/new',
-     template: '<fira-editor/>'
-     })*/
     /*        .state('fira.editor', {
      url: '/:id',
      template: '<fira-editor user="$resolve.fira"/>',

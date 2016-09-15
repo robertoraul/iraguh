@@ -9,3 +9,6 @@ public/fonts/bootstrap
 public/fonts/font-awesome
 *.iml
 *.log
+.bowerrc
+config.json
+config.prod.json

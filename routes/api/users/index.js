@@ -20,10 +20,10 @@ module.exports = router => {
     );
 
     router.get('/current', (req, res, next) =>
-            model.User.findById(req.user._id).exec().then(
-                user => res.send(user),
-                err => next(Error.create('An error occurred trying to fetch the logged in user.', {_id: req.user._id}, err))
-            )
+        model.User.findById(req.user._id).exec().then(
+            user => res.send(user),
+            err => next(Error.create('An error occurred trying to fetch the logged in user.', {_id: req.user._id}, err))
+        )
     );
 
     router.get('/:id', (req, res, next) =>

@@ -17,14 +17,10 @@ angular.module('ira.fira', ['ira.core']).config(['$stateProvider', function ($st
             }
         })
         .state('fira.new', {
-            url: '/new',
-            template: '<fira-editor/>'
+            url: '/new/:id',
+            template: '<fira-new registro="$resolve.registro"/>',
+            resolve: {
+                registro: ['$stateParams', 'firaService', ($stateParams, firaService) => firaService.find($stateParams.id)]
+            }
         });
-    /*        .state('fira.editor', {
-     url: '/:id',
-     template: '<fira-editor user="$resolve.fira"/>',
-     resolve: {
-     user: ['$stateParams', 'firaService', ($stateParams, firaService) => firaService.find($stateParams.id)]
-     }
-     });*/
 }]);

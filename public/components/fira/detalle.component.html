@@ -1,101 +1,112 @@
 <div class="container">
-    <fieldset>
-        <h2>Detalle del Registro <strong>{{ $ctrl.registro.nombreRegistro }}</strong></h2>
-        <div class="form-group form-inline">
-            <label for="sector">Sector</label>
-            <p class="form-control-static" id="sector">{{$ctrl.registro.sector}}</p>
-            <label for="obsSector">Observaciones</label>
-            <p class="form-control-static" id="obsSector">{{$ctrl.registro.obsSector}}</p>
+    <div class="row">
+        <div class="col-sm-1">
+            <a ui-sref="fira.index" class="btn btn-sm btn-primary back-button">
+                <span class="fa fa-arrow-left"></span>
+            </a>
         </div>
-        <div class="form-group form-inline">
-            <label for="nombreRegistro">Nombre del Registro</label>
-            <p class="form-control-static" id="nombreRegistro">{{$ctrl.registro.nombreRegistro}}</p>
-            <label for="obsNomRegistro">Observaciones</label>
-            <p class="form-control-static" id="obsNomRegistro">{{$ctrl.registro.obsNomRegistro}}</p>
+        <div class="col-sm-9">
+            <h2>
+                Detalle del registro: <strong>{{ $ctrl.registro.nombreRegistro }}</strong>
+            </h2>
         </div>
-        <div class="form-group">
-            <label for="informatizado">Informatizado</label>
-            <p class="form-control-static" id="informatizado">{{$ctrl.registro.informatizado}}</p>
-            <label for="obsInformatizado">Observaciones</label>
-            <p class="form-control-static" id="obsInformatizado">{{$ctrl.registro.obsInformatizado}}</p>
-        </div>
-        <div class="form-group">
-            <label for="fechaAlta">Fecha de Alta</label>
-            <p class="form-control-static" id="fechaAlta">{{$ctrl.registro.fechaAltaReg}}</p>
-            <label for="obsFechaAlta">Observaciones</label>
-            <p class="form-control-static" id="obsFechaAlta">{{$ctrl.registro.obsFechaAltaReg}}</p>
-        </div>
-        <div class="form-group">
-            <label for="fechaBaja">Fecha de Baja</label>
-            <p class="form-control-static" id="fechaBaja">{{$ctrl.registro.fechaBajaReg}}</p>
-            <label for="obsFechaBaja">Observaciones</label>
-            <p class="form-control-static" id="obsFechaBaja">{{$ctrl.registro.obsFechaBajaReg}}</p>
-        </div>
-        <div class="form-group">
-            <label for="fechaModif">Fecha Modificacion</label>
-            <p class="form-control-static" id="fechaModif">{{$ctrl.registro.fechaModifReg}}</p>
-            <label for="obsFechaModif">Observaciones</label>
-            <p class="form-control-static" id="obsFechaModif">{{$ctrl.registro.obsFechaModifReg}}</p>
-        </div>
-        <div class="form-group">
-            <label for="nomApellido">Nombre y Apellido</label>
-            <p class="form-control-static" id="nomApellido">{{$ctrl.registro.nomApellido}}</p>
-            <label for="obsNomApellido">Observaciones</label>
-            <p class="form-control-static" id="obsNomApellido">{{$ctrl.registro.obsNomApellido}}</p>
-        </div>
-        <div class="form-group">
-            <label for="puestoOrg">Puesto</label>
-            <p class="form-control-static" id="puestoOrg">{{$ctrl.registro.puestoOrg}}</p>
-            <label for="obsPuestoOrg">Observaciones</label>
-            <p class="form-control-static" id="obsPuestoOrg">{{$ctrl.registro.obsPuestoOrg}}</p>
-        </div>
-        <div class="form-group">
-            <label for="telefono">Teléfono</label>
-            <p class="form-control-static" id="telefono">{{$ctrl.registro.telefono}}</p>
-            <label for="obsTelefono">Observaciones</label>
-            <p class="form-control-static" id="obsTelefono">{{$ctrl.registro.obsTelefono}}</p>
-        </div>
-        <div class="form-group">
-            <label for="email">E-Mail</label>
-            <p class="form-control-static" id="email">{{$ctrl.registro.email}}</p>
-            <label for="obsEmail">Observaciones</label>
-            <p class="form-control-static" id="obsEmail">{{ctrl.registro.obsEmail}}</p>
-        </div>
-    </fieldset>
+    </div>
     <div class="row">
         <div class="col-sm-12">
-            <table class="table table-striped table-responsive table-vertical-middle">
-                <thead>
-                    <tr>
-                        <th>Número de variable</th>
-                        <th>Registro</th>
-                        <th>Apartado</th>
-                        <th>Variable</th>
-                        <th>Fecha de alta</th>
-                        <th>Fecha de baja</th>
-                        <th>Fecha de modificación</th>
-                        <th>Detalle</th>
-                        <th>Unidad de medida</th>
-                        <th>Específica</th>
-                        <th>Activa</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="variable in $ctrl.registro.variables">
-                        <td>{{::variable.variableNro}}</td>
-                        <td>{{::variable.nombreRegistro}}</td>
-                        <td>{{::variable.apartado}}</td>
-                        <td>{{::variable.nombreVariable}}</td>
-                        <td>{{::variable.fechaAltaVariable}}</td>
-                        <td>{{::variable.fechaBajaVariable}}</td>
-                        <td>{{::variable.fechaModificacionVariable}}</td>
-                        <td>{{::variable.detalle}}</td>
-                        <td>{{::variable.unidadMedida}}</td>
-                        <td>{{::variable.especifica}}</td>
-                        <td>{{::variable.activo}}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="panel panel-primary">
+                <div class="panel-heading">Datos del registro</div>
+                <div class="panel-body">
+                    <div class="row form-group form-inline">
+                        <div class="col-sm-4">
+                            <h4>Sector <span class="label label-default">{{$ctrl.registro.sector}}</span></h4>
+                            <h5>{{$ctrl.registro.obsSector}}</h5>
+                        </div>
+                        <div class="col-sm-4">
+                            <h4>Nombre del Registro <span class="label label-default">{{$ctrl.registro.nombreRegistro}}</span></h4>
+                            <h5>{{$ctrl.registro.obsNomRegistro}}</h5>
+                        </div>
+                        <div class="col-sm-4">
+                            <h4>Informatizado <span class="label label-default">{{$ctrl.registro.informatizado | yesNo}}</span></h4>
+                            <h5>{{$ctrl.registro.obsInformatizado}}</h5>
+                        </div>
+                    </div>
+                    <div class="row form-group form-inline">
+                        <div class="col-sm-4">
+                            <h4>Fecha de alta <span class="label label-default">{{$ctrl.registro.fechaAltaReg | date}}</span></h4>
+                            <h5>{{$ctrl.registro.obsFechaAltaReg}}</h5>
+                        </div>
+                        <div class="col-sm-4">
+                            <h4>Fecha de baja <span class="label label-default">{{$ctrl.registro.fechaBajaReg | date}}</span></h4>
+                            <h5>{{$ctrl.registro.obsFechaBajaReg}}</h5>
+                        </div>
+                        <div class="col-sm-4">
+                            <h4>Fecha de modificación <span class="label label-default">{{$ctrl.registro.fechaModifReg | date}}</span></h4>
+                            <h5>{{$ctrl.registro.obsFechaModifReg}}</h5>
+                        </div>
+                    </div>
+                    <div class="row form-group form-inline">
+                        <div class="col-sm-6">
+                            <h4>Nombre y apellido <span class="label label-default">{{$ctrl.registro.nomApellido}}</span></h4>
+                            <h5>{{$ctrl.registro.obsNomApellido}}</h5>
+                        </div>
+                        <div class="col-sm-6">
+                            <h4>Puesto <span class="label label-default">{{$ctrl.registro.puestoOrg}}</span></h4>
+                            <h5>{{$ctrl.registro.obsPuestoOrg}}</h5>
+                        </div>
+                    </div>
+                    <div class="row form-group form-inline">
+                        <div class="col-sm-6">
+                            <h4>Teléfono <span class="label label-default">{{$ctrl.registro.telefono}}</span></h4>
+                            <h5>{{$ctrl.registro.obsTelefono}}</h5>
+                        </div>
+                        <div class="col-sm-6">
+                            <h4>E-Mail <span class="label label-default">{{$ctrl.registro.email}}</span></h4>
+                            <h5>{{$ctrl.registro.obsEmail}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Variables</div>
+                <div class="panel-body">
+                    <table class="table table-striped table-responsive table-vertical-middle">
+                        <thead>
+                            <tr>
+                                <th>Número de variable</th>
+                                <th>Registro</th>
+                                <th>Apartado</th>
+                                <th>Variable</th>
+                                <th>Fecha de alta</th>
+                                <th>Fecha de baja</th>
+                                <th>Fecha de modificación</th>
+                                <th>Detalle</th>
+                                <th>Unidad de medida</th>
+                                <th>Específica</th>
+                                <th>Activa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="variable in $ctrl.registro.variables">
+                                <td>{{::variable.variableNro}}</td>
+                                <td>{{::variable.nombreRegistro}}</td>
+                                <td>{{::variable.apartado}}</td>
+                                <td>{{::variable.nombreVariable}}</td>
+                                <td>{{::variable.fechaAltaVariable | date}}</td>
+                                <td>{{::variable.fechaBajaVariable | date}}</td>
+                                <td>{{::variable.fechaModificacionVariable | date}}</td>
+                                <td>{{::variable.detalle}}</td>
+                                <td>{{::variable.unidadMedida}}</td>
+                                <td>{{::variable.especifica | yesNo}}</td>
+                                <td>{{::variable.activo | yesNo}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
     <div>

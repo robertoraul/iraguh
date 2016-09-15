@@ -3,6 +3,10 @@ angular.module('ira.fira').component('fira', {
     controller: ['firaService', function (firaService) {
         var $ctrl = this;
         $ctrl.$onInit = () => firaService.fetch().then(data => $ctrl.registros = data);
+
+        $ctrl.delete = (idRegistro) => {
+            alert(String(idRegistro) + 'db.registros.update{$set: {deleted: true}})')
+        };
     }]
 });
 

@@ -13,7 +13,6 @@ model.enums = {
 };
 
 model.User = mongoose.model('User', new Schema({
-// _id is the username
     _id: {type: String},
     password: {type: String, required: true},
     email: {type: String, required: true},

@@ -5,8 +5,6 @@ angular.module('ira.fira').component('firaDetalle', {
     },
     controller: ['firaService', function (firaService) {
         var $ctrl = this;
-        //harcodeado para traer datos del registro al form.
-        //no esta pasando $ctrl.id
         $ctrl.$onInit = () =>  firaService.find($ctrl.registro._id).then(data => {});
 
     }]

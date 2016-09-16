@@ -10,15 +10,19 @@ angular.module('ira.fira', ['ira.core']).config(['$stateProvider', function ($st
             template: '<fira/>'
         })
         .state('fira.detalle', {
-            url: '/:id',
+            url: '/detalle/:id',
             template: '<fira-detalle registro="$resolve.registro"/>',
             resolve: {
                 registro: ['$stateParams', 'firaService', ($stateParams, firaService) => firaService.find($stateParams.id)]
             }
         })
         .state('fira.new', {
-            url: '/new/:id',
-            template: '<fira-new registro="$resolve.registro"/>',
+            url: '/new',
+            template: '<fira-editor/>'
+        })
+        .state('fira.editor', {
+            url: '/:id',
+            template: '<fira-editor registro="$resolve.registro"/>',
             resolve: {
                 registro: ['$stateParams', 'firaService', ($stateParams, firaService) => firaService.find($stateParams.id)]
             }

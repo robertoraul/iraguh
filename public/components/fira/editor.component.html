@@ -1,0 +1,126 @@
+<div class="container">
+    <form id="miForm"action="nuevoRegistro">
+        <div class="container">
+            <fieldset>
+                <div class="row form-group">
+                    <div class="col-sm-6">
+                        <label for="sector">Sector</label>
+                        <input ng-model="$ctrl.registro.sector" type="text" name="sector" id="sector">
+                    </div>
+                    <div class="col-sm-6"></div>
+
+                    <label for="obsSector">Observaciones Sector</label>
+                    <textarea ng-model="$ctrl.registro.obsSector" name="obsSector" id="obsSector" cols="30" rows="3"></textarea>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-6">
+                        <label for="nombreRegistro">Nombre del Registro</label>
+                        <input ng-model="$ctrl.registro.nombreRegistro" type="text" name="nombreRegistro" id="nombreRegistro">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="obsNomRegistro">Observaciones Nombre</label>
+                        <textarea ng-model="$ctrl.registro.obsNomRegistro" name="obsNomRegistro" id="obsNomRegistro" cols="30" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-6">
+                        <label for="informatizado">Informatizado </label>
+                        <input type="checkbox" ng-model="$ctrl.registro.informatizado" name="informatizado" id="informatizado">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="obsInformatizado">Observaciones</label>
+                        <textarea ng-model="$ctrl.registro.obsInformatizado" name="obsInformatizado" id="obsInformatizado" cols="30" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-4">
+                        <label for="fechaAlta">Fecha de Alta</label>
+                        <p class="input-group">
+                            <input type="text" id="fechaAlta" name="fechaAlta" ng-model="$ctrl.registro.fechaAltaReg"
+                                   uib-datepicker-popup="dd/MM/yyyy"
+                                   is-open="$ctrl.fechaAltaOpen"
+                                   class="form-control"/>
+                            <span class="input-group-btn">
+                                <button type="button" ng-click="$ctrl.openFechaAlta()" class="btn btn-default">
+                                    <i class="fa fa-calendar"></i>
+                                </button>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="col-sm-8">
+                        <label for="obsFechaAlta">Observaciones</label>
+                        <textarea id="obsFechaAlta" name="obsFechaAlta" ng-model="$ctrl.registro.obsFechaAltaReg"
+                                  class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-6">
+                        <label for="fechaBaja">Fecha de Baja</label>
+                        <p>
+                            <input ng-model="$ctrl.registro.fechaBajaReg" type="text" name="fechaBaja" id="fechaBaja">
+                        </p>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="obsFechaBaja">Observaciones</label>
+                        <textarea ng-model="$ctrl.registro.obsFechaBajaReg" name="obsFechaBaja" id="obsFechaBaja" cols="30" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-6">
+                        <label for="fechaModif">Fecha Modificacion</label>
+                        <input ng-model="$ctrl.registro.fechaModifReg" type="text" name="fechaModif" id="fechaModif">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="obsFechaModif">Observaciones</label>
+                        <textarea ng-model="$ctrl.registro.obsFechaModifReg" name="obsFechaModif" id="obsFechaModif" cols="30" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-6">
+                        <label for="nomApellido">Nombre y Apellido</label>
+                        <input ng-model="$ctrl.registro.nomApellido" type="text" name="nomApellido" id="nomApellido">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="obsNomApellido">Observaciones</label>
+                        <textarea ng-model="$ctrl.registro.obsNomApellido" name="obsNomApellido" id="obsNomApellido" cols="30" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-6">
+                        <label for="puestoOrg">Puesto</label>
+                        <input ng-model="$ctrl.registro.puestoOrg" type="text" name="puestoOrg" id="puestoOrg">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="obsPuestoOrg">Observaciones</label>
+                        <textarea ng-model="$ctrl.registro.obsPuestoOrg" name="obsPuestoOrg" id="obsPuestoOrg" cols="30" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-6">
+                        <label for="telefono">Teléfono</label>
+                        <input ng-model="$ctrl.registro.telefono" type="text" name="telefono" id="telefono">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="obsTelefono">Observaciones</label>
+                        <textarea ng-model="$ctrl.registro.obsTelefono" name="obsTelefono" id="obsTelefono" cols="30" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-6">
+                        <label for="email">E-Mail</label>
+                        <input ng-model="$ctrl.registro.email" type="text" name="email" id="email">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="obsEmail">E-Mail</label>
+                        <textarea ng-model="$ctrl.registro.obsEmail" name="obsEmail" id="obsEmail" cols="30" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="button" onclick="history.back()" class="bottom" value="<-- Volver">
+                    <input type="button" onclick="document.getElementById('miForm').reset()" class="bottom" value="Limpiar Formulario">
+                    <input type="submit" class="bottom" value="Guardar">
+                </div>
+            </fieldset>
+        </div>
+    </form>
+</div>

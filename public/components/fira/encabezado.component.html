@@ -1,20 +1,22 @@
-<table class="table table-bordered">
-    <thead>
-    <tr>
-        <th>Provincia</th>
-        <th>Gobierno Local</th>
-        <th>Tipo de  Gobienrno Local</th>
-        <th>Código de Gobierno Local</th>
-        <th>Población CNPHV-2010</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="d in $ctrl.dato">
-        <td>{{d.provincia}}</td>
-        <td>{{d.gobLocal}}</td>
-        <td>{{d.tipoGobLocal}}</td>
-        <td>{{d.codGobLocal}}</td>
-        <td>{{d.poblacion}}</td>
-    </tr>
-    </tbody>
-</table>
+    <div class="container">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Provincia</th>
+            <th>Gobierno Local</th>
+            <th>Tipo de  Gobienrno Local</th>
+            <th>Código de Gobierno Local</th>
+            <th>Población CNPHV-2010</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="d in $ctrl.dato">
+            <td>{{d.provincia}}</td>
+            <td>{{d.gobLocal}}</td>
+            <td>{{d.tipoGobLocal}}</td>
+            <td>{{d.codGobLocal}}</td>
+            <td>{{d.poblacion}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

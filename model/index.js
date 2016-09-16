@@ -147,4 +147,19 @@ model.Variable = mongoose.model('Variable', new Schema({
     unidadMedida: {type: String},
     activo: {type: Boolean}
 }, {collection: 'variables', timestamps: true}));
+
+model.GobiernoLocal = mongoose.model('GobiernoLocal', new Schema({
+    codigo : {type: String},
+    tipoGL : {type: Number},
+    nombreGL : {type: String},
+    pob2010 : {type: Number},
+    fechaSistema : {type: Date},
+    gobiernolocaltipo:[{type: ObjectId, ref: 'gobiernolocaltipo', required: true}]
+},{collection: 'gobiernolocal', timestamps: true}));
+
+model.GobiernoLocalTipo = mongoose.model('GobiernoLocalTipo', new Schema({
+    tipoGL: {type: String},
+    siglaTipoGL: {type: String}
+},{collection: 'gobiernolocaltipo', timestamps: true}));
+
 model.Error = mongoose.model('Error', new Schema({}, {collection: 'logs.errors'}));

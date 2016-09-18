@@ -131,7 +131,8 @@ model.Registro = mongoose.model('Registro', new Schema({
     obsFechaModifReg: {type: String},
     obsFechaBajaReg: {type: String},
     activo: {type: Boolean},
-    variables: [{type: ObjectId, ref: 'Variable', required: true}]
+    variables: [{type: ObjectId, ref: 'Variable', required: true}],
+    deleted: {type: Boolean}
 }, {collection: 'registros', timestamps: true}));
 
 model.Variable = mongoose.model('Variable', new Schema({
@@ -145,7 +146,8 @@ model.Variable = mongoose.model('Variable', new Schema({
     especifica: {type: Boolean},
     detalle: {type: String},
     unidadMedida: {type: String},
-    activo: {type: Boolean}
+    activo: {type: Boolean},
+    deleted: {type: Boolean}
 }, {collection: 'variables', timestamps: true}));
 
 model.GobiernoLocal = mongoose.model('GobiernoLocal', new Schema({
@@ -154,7 +156,8 @@ model.GobiernoLocal = mongoose.model('GobiernoLocal', new Schema({
     nombreGL : {type: String},
     pob2010 : {type: Number},
     fechaSistema : {type: Date},
-    gobiernolocaltipo:[{type: ObjectId, ref: 'gobiernolocaltipo', required: true}]
+    gobiernolocaltipo:[{type: ObjectId, ref: 'gobiernolocaltipo', required: true}],
+    deleted: {type: Boolean}
 },{collection: 'gobiernolocal', timestamps: true}));
 
 model.GobiernoLocalTipo = mongoose.model('GobiernoLocalTipo', new Schema({

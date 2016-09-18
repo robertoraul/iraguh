@@ -7,6 +7,13 @@ angular.module('ira.fira').component('firaEncabezado', {
         var $ctrl = this;
         $ctrl.$onInit = () =>  firaService.fetch().then(registros => {
             $ctrl.registros = registros;
+            $ctrl.dato = {
+                provincia: 'La Pampa',
+                codGobLocal: '073455',
+                gobLocal: 'Municipalidad de Santa Rosa',
+                tipoGobLocal: '???',
+                poblacion: 34567
+            };
             firaService.fetchVariables().then(variables => $ctrl.variables = variables);
         });
 

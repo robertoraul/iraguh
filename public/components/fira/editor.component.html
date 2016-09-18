@@ -1,126 +1,244 @@
 <div class="container">
-    <form id="miForm"action="nuevoRegistro">
-        <div class="container">
-            <fieldset>
-                <div class="row form-group">
-                    <div class="col-sm-6">
-                        <label for="sector">Sector</label>
-                        <input ng-model="$ctrl.registro.sector" type="text" name="sector" id="sector">
-                    </div>
-                    <div class="col-sm-6"></div>
-
-                    <label for="obsSector">Observaciones Sector</label>
-                    <textarea ng-model="$ctrl.registro.obsSector" name="obsSector" id="obsSector" cols="30" rows="3"></textarea>
-                </div>
-                <div class="row form-group">
-                    <div class="col-sm-6">
-                        <label for="nombreRegistro">Nombre del Registro</label>
-                        <input ng-model="$ctrl.registro.nombreRegistro" type="text" name="nombreRegistro" id="nombreRegistro">
-                    </div>
-                    <div class="col-sm-6">
-                        <label for="obsNomRegistro">Observaciones Nombre</label>
-                        <textarea ng-model="$ctrl.registro.obsNomRegistro" name="obsNomRegistro" id="obsNomRegistro" cols="30" rows="3"></textarea>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-sm-6">
-                        <label for="informatizado">Informatizado </label>
-                        <input type="checkbox" ng-model="$ctrl.registro.informatizado" name="informatizado" id="informatizado">
-                    </div>
-                    <div class="col-sm-6">
-                        <label for="obsInformatizado">Observaciones</label>
-                        <textarea ng-model="$ctrl.registro.obsInformatizado" name="obsInformatizado" id="obsInformatizado" cols="30" rows="3"></textarea>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-sm-4">
-                        <label for="fechaAlta">Fecha de Alta</label>
-                        <p class="input-group">
-                            <input type="text" id="fechaAlta" name="fechaAlta" ng-model="$ctrl.registro.fechaAltaReg"
-                                   uib-datepicker-popup="dd/MM/yyyy"
-                                   is-open="$ctrl.fechaAltaOpen"
-                                   class="form-control"/>
-                            <span class="input-group-btn">
+    <div class="row">
+        <div class="col-sm-1">
+            <a ui-sref="fira.index" class="btn btn-sm btn-primary back-button">
+                <span class="fa fa-arrow-left"></span>
+            </a>
+        </div>
+        <div class="col-sm-9">
+            <h2>
+                Registro
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="nuevoRegistro" ng-submit="$ctrl.save()" role="form">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Datos del registro</div>
+                    <div class="panel-body">
+                        <div class="row form-group">
+                            <div class="col-sm-4">
+                                <label for="sector">Sector</label>
+                                <input type="text" id="sector" name="sector" ng-model="$ctrl.registro.sector" class="form-control">
+                            </div>
+                            <div class="col-sm-8">
+                                <label for="obsSector">Observaciones Sector</label>
+                                <textarea id="obsSector" name="obsSector" ng-model="$ctrl.registro.obsSector" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-4">
+                                <label for="nombreRegistro">Nombre del Registro</label>
+                                <input type="text" id="nombreRegistro" name="nombreRegistro" ng-model="$ctrl.registro.nombreRegistro" class="form-control">
+                            </div>
+                            <div class="col-sm-8">
+                                <label for="obsNomRegistro">Observaciones Nombre</label>
+                                <textarea id="obsNomRegistro" name="obsNomRegistro" ng-model="$ctrl.registro.obsNomRegistro" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-4">
+                                <label for="informatizado">Informatizado </label>
+                                <span class="input-group">
+                            <input type="checkbox" id="informatizado" name="informatizado" ng-model="$ctrl.registro.informatizado">
+                        </span>
+                            </div>
+                            <div class="col-sm-8">
+                                <label for="obsInformatizado">Observaciones</label>
+                                <textarea id="obsInformatizado" name="obsInformatizado" ng-model="$ctrl.registro.obsInformatizado" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-2">
+                                <label for="fechaAlta">Fecha de Alta</label>
+                                <p class="input-group">
+                                    <input type="text" id="fechaAlta" name="fechaAlta" ng-model="$ctrl.registro.fechaAltaReg"
+                                           uib-datepicker-popup="dd/MM/yyyy"
+                                           is-open="$ctrl.fechaAltaOpen"
+                                           class="form-control"/>
+                                    <span class="input-group-btn">
                                 <button type="button" ng-click="$ctrl.openFechaAlta()" class="btn btn-default">
                                     <i class="fa fa-calendar"></i>
                                 </button>
                             </span>
-                        </p>
-                    </div>
-                    <div class="col-sm-8">
-                        <label for="obsFechaAlta">Observaciones</label>
-                        <textarea id="obsFechaAlta" name="obsFechaAlta" ng-model="$ctrl.registro.obsFechaAltaReg"
-                                  class="form-control"></textarea>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-sm-6">
-                        <label for="fechaBaja">Fecha de Baja</label>
-                        <p>
-                            <input ng-model="$ctrl.registro.fechaBajaReg" type="text" name="fechaBaja" id="fechaBaja">
-                        </p>
-                    </div>
-                    <div class="col-sm-6">
-                        <label for="obsFechaBaja">Observaciones</label>
-                        <textarea ng-model="$ctrl.registro.obsFechaBajaReg" name="obsFechaBaja" id="obsFechaBaja" cols="30" rows="3"></textarea>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-sm-6">
-                        <label for="fechaModif">Fecha Modificacion</label>
-                        <input ng-model="$ctrl.registro.fechaModifReg" type="text" name="fechaModif" id="fechaModif">
-                    </div>
-                    <div class="col-sm-6">
-                        <label for="obsFechaModif">Observaciones</label>
-                        <textarea ng-model="$ctrl.registro.obsFechaModifReg" name="obsFechaModif" id="obsFechaModif" cols="30" rows="3"></textarea>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-sm-6">
-                        <label for="nomApellido">Nombre y Apellido</label>
-                        <input ng-model="$ctrl.registro.nomApellido" type="text" name="nomApellido" id="nomApellido">
-                    </div>
-                    <div class="col-sm-6">
-                        <label for="obsNomApellido">Observaciones</label>
-                        <textarea ng-model="$ctrl.registro.obsNomApellido" name="obsNomApellido" id="obsNomApellido" cols="30" rows="3"></textarea>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-sm-6">
-                        <label for="puestoOrg">Puesto</label>
-                        <input ng-model="$ctrl.registro.puestoOrg" type="text" name="puestoOrg" id="puestoOrg">
-                    </div>
-                    <div class="col-sm-6">
-                        <label for="obsPuestoOrg">Observaciones</label>
-                        <textarea ng-model="$ctrl.registro.obsPuestoOrg" name="obsPuestoOrg" id="obsPuestoOrg" cols="30" rows="3"></textarea>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-sm-6">
-                        <label for="telefono">Teléfono</label>
-                        <input ng-model="$ctrl.registro.telefono" type="text" name="telefono" id="telefono">
-                    </div>
-                    <div class="col-sm-6">
-                        <label for="obsTelefono">Observaciones</label>
-                        <textarea ng-model="$ctrl.registro.obsTelefono" name="obsTelefono" id="obsTelefono" cols="30" rows="3"></textarea>
+                                </p>
+                            </div>
+                            <div class="col-sm-offset-2 col-sm-8">
+                                <label for="obsFechaAlta">Observaciones</label>
+                                <textarea id="obsFechaAlta" name="obsFechaAlta" ng-model="$ctrl.registro.obsFechaAltaReg"
+                                          class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-2">
+                                <label for="fechaAlta">Fecha de Baja</label>
+                                <p class="input-group">
+                                    <input type="text" id="fechaBaja" name="fechaBaja" ng-model="$ctrl.registro.fechaBajaReg"
+                                           uib-datepicker-popup="dd/MM/yyyy"
+                                           is-open="$ctrl.fechaBajaOpen"
+                                           class="form-control"/>
+                                    <span class="input-group-btn">
+                                <button type="button" ng-click="$ctrl.openFechaBaja()" class="btn btn-default">
+                                    <i class="fa fa-calendar"></i>
+                                </button>
+                            </span>
+                                </p>
+                            </div>
+                            <div class="col-sm-offset-2 col-sm-8">
+                                <label for="obsFechaBaja">Observaciones</label>
+                                <textarea id="obsFechaBaja" name="obsFechaBaja" ng-model="$ctrl.registro.obsFechaBajaReg"
+                                          class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-2">
+                                <label for="fechaModif">Fecha de Modificación</label>
+                                <p class="input-group">
+                                    <input type="text" id="fechaModif" name="fechaModif" ng-model="$ctrl.registro.fechaModifReg"
+                                           uib-datepicker-popup="dd/MM/yyyy"
+                                           is-open="$ctrl.fechaModifOpen"
+                                           class="form-control"/>
+                                    <span class="input-group-btn">
+                                <button type="button" ng-click="$ctrl.openFechaModif()" class="btn btn-default">
+                                    <i class="fa fa-calendar"></i>
+                                </button>
+                            </span>
+                                </p>
+                            </div>
+                            <div class="col-sm-offset-2 col-sm-8">
+                                <label for="obsFechaModif">Observaciones</label>
+                                <textarea id="obsFechaModif" name="obsFechaModif" ng-model="$ctrl.registro.obsFechaModifReg"
+                                          class="form-control"></textarea>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="row form-group">
-                    <div class="col-sm-6">
-                        <label for="email">E-Mail</label>
-                        <input ng-model="$ctrl.registro.email" type="text" name="email" id="email">
-                    </div>
-                    <div class="col-sm-6">
-                        <label for="obsEmail">E-Mail</label>
-                        <textarea ng-model="$ctrl.registro.obsEmail" name="obsEmail" id="obsEmail" cols="30" rows="3"></textarea>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Datos del referente</div>
+                    <div class="panel-body">
+                        <div class="row form-group">
+                            <div class="col-sm-4">
+                                <label for="nomApellido">Nombre y Apellido</label>
+                                <input type="text" id="nomApellido" name="nomApellido" ng-model="$ctrl.registro.nomApellido" class="form-control">
+                            </div>
+                            <div class="col-sm-8">
+                                <label for="obsNomApellido">Observaciones</label>
+                                <textarea id="obsNomApellido" name="obsNomApellido" ng-model="$ctrl.registro.obsNomApellido" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-4">
+                                <label for="puestoOrg">Puesto</label>
+                                <input type="text" id="puestoOrg" name="puestoOrg" ng-model="$ctrl.registro.puestoOrg" class="form-control">
+                            </div>
+                            <div class="col-sm-8">
+                                <label for="obsPuestoOrg">Observaciones</label>
+                                <textarea id="obsPuestoOrg" name="obsPuestoOrg" ng-model="$ctrl.registro.obsPuestoOrg" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-4">
+                                <label for="telefono">Teléfono</label>
+                                <input type="text" id="telefono" name="telefono" ng-model="$ctrl.registro.telefono" class="form-control">
+                            </div>
+                            <div class="col-sm-8">
+                                <label for="obsTelefono">Observaciones</label>
+                                <textarea id="obsTelefono" name="obsTelefono" ng-model="$ctrl.registro.obsTelefono" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-sm-4">
+                                <label for="email">E-Mail</label>
+                                <input type="text" id="email" name="email" ng-model="$ctrl.registro.email" class="form-control">
+                            </div>
+                            <div class="col-sm-8">
+                                <label for="obsEmail">E-Mail</label>
+                                <textarea id="obsEmail" name="obsEmail" ng-model="$ctrl.registro.obsEmail" class="form-control"></textarea>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-                <div class="form-group">
-                    <input type="button" onclick="history.back()" class="bottom" value="<-- Volver">
-                    <input type="button" onclick="document.getElementById('miForm').reset()" class="bottom" value="Limpiar Formulario">
-                    <input type="submit" class="bottom" value="Guardar">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Variables</div>
+                    <div class="panel-body">
+                        <div class="row form-group">
+                            <div class="col-sm-6">
+                                <button type="button" ng-click="$ctrl.agregarVariable()" class="btn btn-primary">
+                                    <span class="fa fa-plus"></span> Nueva
+                                </button>
+                                <button type="button" ng-click="$ctrl.elegirVariable()" class="btn btn-primary">
+                                    <span class="fa fa-plus"></span> Seleccionar
+                                </button>
+                            </div>
+                            <div class="col-sm-6 text-right">
+                                <button type="submit" class="btn btn-primary">
+                                    <span class="fa fa-floppy-o"></span> Guardar
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row form-group" ng-if="$ctrl.eligiendoVariable">
+                            <div class="col-sm-6">
+                                <label>Variable</label>
+                                <busca-variable ng-model="$ctrl.variableId" ng-required="true"
+                                                on-select="$ctrl.seleccionarVariable(variable)"></busca-variable>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="$ctrl.registro.variables.length">
+                            <div class="col-sm-12">
+                                <table class="table table-striped table-responsive table-vertical-middle">
+                                    <thead>
+                                    <tr>
+                                        <th>Número de variable</th>
+                                        <th>Registro</th>
+                                        <th>Apartado</th>
+                                        <th>Variable</th>
+                                        <th>Fecha de alta</th>
+                                        <th>Fecha de baja</th>
+                                        <th>Fecha de modificación</th>
+                                        <th>Detalle</th>
+                                        <th>Unidad de medida</th>
+                                        <th>Específica</th>
+                                        <th>Activa</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="variable in $ctrl.registro.variables track by $index">
+                                        <td>{{variable.variableNro}}</td>
+                                        <td>{{variable.nombreRegistro}}</td>
+                                        <td>{{variable.apartado}}</td>
+                                        <td>{{variable.nombreVariable}}</td>
+                                        <td>{{variable.fechaAltaVariable | date}}</td>
+                                        <td>{{variable.fechaBajaVariable | date}}</td>
+                                        <td>{{variable.fechaModificacionVariable | date}}</td>
+                                        <td>{{variable.detalle}}</td>
+                                        <td>{{variable.unidadMedida}}</td>
+                                        <td>{{variable.especifica | yesNo}}</td>
+                                        <td>{{variable.activo | yesNo}}</td>
+                                        <td class="text-center">
+                                            <a ng-click="$ctrl.editarVariable(variable)" title="Editar"
+                                               class="btn btn-sm">
+                                                <span class="fa fa-pencil"></span>
+                                            </a>
+                                            <a ng-click="$ctrl.borrarVariable(variable)" title="Eliminar de la lista"
+                                               class="btn btn-sm">
+                                                <span class="fa fa-trash text-danger"></span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+
+
+                    </div>
                 </div>
-            </fieldset>
+
+            </form>
         </div>
-    </form>
+    </div>
 </div>

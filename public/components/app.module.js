@@ -15,6 +15,7 @@ angular.module('ira', [
     'ira.core',
     'ira.home',
     'ira.fira',
+    'ira.gobiernosLocales',
     'ira.logs',
     'ira.users'
 ]);

@@ -8,6 +8,13 @@ module.exports = router => {
         )
     );
 
+    router.get('/gl/:gobierno', (req, res, next) =>
+        model.Registro.find({idGL: req.params.gobierno}).populate('variables').exec().then(
+            registros => res.send(registros),
+            err => next(Error.create('Error al intentar obtener los registros', {}, err))
+        )
+    );
+
     router.get('/variables', (req, res, next) =>
         model.Variable.find({}).exec().then(
             variables => res.send(variables),

@@ -14,6 +14,7 @@ model.enums = {
 
 model.User = mongoose.model('User', new Schema({
     _id: {type: String},
+    codGL: {type: String},
     password: {type: String, required: true},
     email: {type: String, required: true},
     name: {type: String, required: true},
@@ -151,12 +152,12 @@ model.Variable = mongoose.model('Variable', new Schema({
 }, {collection: 'variables', timestamps: true}));
 
 model.GobiernoLocal = mongoose.model('GobiernoLocal', new Schema({
-    codigo : {type: String},
+    codGL : {type: String},
     tipoGL : {type: Number},
     nombreGL : {type: String},
     pob2010 : {type: Number},
     fechaSistema : {type: Date},
-    gobiernolocaltipo:[{type: ObjectId, ref: 'gobiernolocaltipo', required: true}],
+    gobiernolocaltipo: {type: ObjectId, ref: 'GobiernoLocalTipo'},
     deleted: {type: Boolean}
 },{collection: 'gobiernolocal', timestamps: true}));
 

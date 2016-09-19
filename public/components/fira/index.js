@@ -6,8 +6,19 @@ angular.module('ira.fira', ['ira.core']).config(['$stateProvider', function ($st
             template: '<ui-view/>'
         })
         .state('fira.index', {
-            url: '',
-            template: '<fira/>'
+            url: '?gobierno',
+            template: '<fira gobierno="$resolve.gobierno"/>',
+            resolve: {
+                gobierno: ['$stateParams', 'gobiernosLocalesService', ($stateParams, gobiernosLocalesService) => {
+                    if (!$stateParams.gobierno) {
+                        return null;
+                    }
+                    return gobiernosLocalesService.find($stateParams.gobierno).then( data => {
+                            return data.codGL;
+                        }
+                    );
+                }]
+            }
         })
         .state('fira.detalle', {
             url: '/detalle/:id',

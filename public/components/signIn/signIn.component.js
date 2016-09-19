@@ -1,6 +1,6 @@
 angular.module('ira.signIn').component('signIn', {
     templateUrl: 'components/signIn/signIn.component.html',
-    controller: ['$http', '$window', function ($http, $window) {
+    controller: ['$http', '$window', '$state', function ($http, $window, $state) {
         var $ctrl = this;
         $ctrl.signIn = () => {
             $ctrl.working = true;

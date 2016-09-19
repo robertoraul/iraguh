@@ -11,7 +11,7 @@ angular.module('ira.fira').component('firaEditor', {
             $ctrl.fechaModificacionOpen = false;
             $ctrl.registros = registros;
             $ctrl.esNuevo = !$ctrl.registro;
-            $ctrl.eligiendoVariable = false;
+            $ctrl.variablesNuevas = [];
             firaService.fetchVariables().then(variables => $ctrl.variables = variables);
             if ($ctrl.esNuevo) {
                 $ctrl.registro = { variables: [] };
@@ -38,18 +38,16 @@ angular.module('ira.fira').component('firaEditor', {
                     variable:  () => $ctrl.variable
                 },
             }).result.then(
-                variable => $ctrl.registro.variables.push(variable)
+                variable => {
+                    $ctrl.registro.variables.push(variable);
+                    $ctrl.variablesNuevas.push(variable);
+                }
             );
         };
-
-        $ctrl.elegirVariable = () => {
-            $ctrl.eligiendoVariable = true;
-        }
 
         $ctrl.seleccionarVariable = variable => {
             $ctrl.variable = variable;
             $ctrl.registro.variables.push(variable);
-            $ctrl.eligiendoVariable = false;
         };
 
         $ctrl.editarVariable = variable =>
@@ -65,10 +63,11 @@ angular.module('ira.fira').component('firaEditor', {
 
         $ctrl.borrarVariable = variable =>  {
             if ($ctrl.registro.variables.length) {
-                if ($ctrl.esNuevo) {
+                if ($ctrl.variablesNuevas.indexOf(variable) > -1) {
                     $ctrl.registro.variables.splice($ctrl.registro.variables.indexOf(variable), 1);
+                    $ctrl.variablesNuevas.splice($ctrl.variablesNuevas.indexOf(variable), 1);
                 } else {
-
+                    alert('La variable fue asignada previamente al registro. No se elimina sino que se marca como borrada.');
                 }
             }
         };

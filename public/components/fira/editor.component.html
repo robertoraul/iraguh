@@ -1,5 +1,8 @@
 <div class="container">
     <div class="row">
+        <fira-encabezado></fira-encabezado>
+    </div>
+    <div class="row">
         <div class="col-sm-1">
             <a ui-sref="fira.index" class="btn btn-sm btn-primary back-button">
                 <span class="fa fa-arrow-left"></span>
@@ -41,8 +44,9 @@
                             <div class="col-sm-4">
                                 <label for="informatizado">Informatizado </label>
                                 <span class="input-group">
-                            <input type="checkbox" id="informatizado" name="informatizado" ng-model="$ctrl.registro.informatizado">
-                        </span>
+                                    <input type="checkbox" id="informatizado" name="informatizado"
+                                           ng-model="$ctrl.registro.informatizado">
+                                </span>
                             </div>
                             <div class="col-sm-8">
                                 <label for="obsInformatizado">Observaciones</label>
@@ -52,17 +56,7 @@
                         <div class="row form-group">
                             <div class="col-sm-2">
                                 <label for="fechaAlta">Fecha de Alta</label>
-                                <p class="input-group">
-                                    <input type="text" id="fechaAlta" name="fechaAlta" ng-model="$ctrl.registro.fechaAltaReg"
-                                           uib-datepicker-popup="dd/MM/yyyy"
-                                           is-open="$ctrl.fechaAltaOpen"
-                                           class="form-control"/>
-                                    <span class="input-group-btn">
-                                <button type="button" ng-click="$ctrl.openFechaAlta()" class="btn btn-default">
-                                    <i class="fa fa-calendar"></i>
-                                </button>
-                            </span>
-                                </p>
+                                <datepicker id="fechaAlta" name="fechaAlta" ng-model="$ctrl.registro.fechaAltaReg"></datepicker>
                             </div>
                             <div class="col-sm-offset-2 col-sm-8">
                                 <label for="obsFechaAlta">Observaciones</label>
@@ -72,18 +66,8 @@
                         </div>
                         <div class="row form-group">
                             <div class="col-sm-2">
-                                <label for="fechaAlta">Fecha de Baja</label>
-                                <p class="input-group">
-                                    <input type="text" id="fechaBaja" name="fechaBaja" ng-model="$ctrl.registro.fechaBajaReg"
-                                           uib-datepicker-popup="dd/MM/yyyy"
-                                           is-open="$ctrl.fechaBajaOpen"
-                                           class="form-control"/>
-                                    <span class="input-group-btn">
-                                <button type="button" ng-click="$ctrl.openFechaBaja()" class="btn btn-default">
-                                    <i class="fa fa-calendar"></i>
-                                </button>
-                            </span>
-                                </p>
+                                <label for="fechaBaja">Fecha de Baja</label>
+                                <datepicker id="fechaBaja" name="fechaBaja" ng-model="$ctrl.registro.fechaBajaReg"></datepicker>
                             </div>
                             <div class="col-sm-offset-2 col-sm-8">
                                 <label for="obsFechaBaja">Observaciones</label>
@@ -94,17 +78,7 @@
                         <div class="row form-group">
                             <div class="col-sm-2">
                                 <label for="fechaModif">Fecha de Modificación</label>
-                                <p class="input-group">
-                                    <input type="text" id="fechaModif" name="fechaModif" ng-model="$ctrl.registro.fechaModifReg"
-                                           uib-datepicker-popup="dd/MM/yyyy"
-                                           is-open="$ctrl.fechaModifOpen"
-                                           class="form-control"/>
-                                    <span class="input-group-btn">
-                                <button type="button" ng-click="$ctrl.openFechaModif()" class="btn btn-default">
-                                    <i class="fa fa-calendar"></i>
-                                </button>
-                            </span>
-                                </p>
+                                <datepicker id="fechaModif" name="fechaModif" ng-model="$ctrl.registro.fechaModifReg"></datepicker>
                             </div>
                             <div class="col-sm-offset-2 col-sm-8">
                                 <label for="obsFechaModif">Observaciones</label>
@@ -166,23 +140,13 @@
                         <div class="row form-group">
                             <div class="col-sm-6">
                                 <button type="button" ng-click="$ctrl.agregarVariable()" class="btn btn-primary">
-                                    <span class="fa fa-plus"></span> Nueva
-                                </button>
-                                <button type="button" ng-click="$ctrl.elegirVariable()" class="btn btn-primary">
-                                    <span class="fa fa-plus"></span> Seleccionar
+                                    <span class="fa fa-plus"></span> Agregar
                                 </button>
                             </div>
                             <div class="col-sm-6 text-right">
                                 <button type="submit" class="btn btn-primary">
                                     <span class="fa fa-floppy-o"></span> Guardar
                                 </button>
-                            </div>
-                        </div>
-                        <div class="row form-group" ng-if="$ctrl.eligiendoVariable">
-                            <div class="col-sm-6">
-                                <label>Variable</label>
-                                <busca-variable ng-model="$ctrl.variableId" ng-required="true"
-                                                on-select="$ctrl.seleccionarVariable(variable)"></busca-variable>
                             </div>
                         </div>
                         <div class="row" ng-show="$ctrl.registro.variables.length">
@@ -231,13 +195,9 @@
                                     </tbody>
                                 </table>
                             </div>
-
                         </div>
-
-
                     </div>
                 </div>
-
             </form>
         </div>
     </div>

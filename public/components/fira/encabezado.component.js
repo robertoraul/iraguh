@@ -16,8 +16,6 @@ angular.module('ira.fira').component('firaEncabezado', {
             };
             firaService.fetchVariables().then(variables => $ctrl.variables = variables);
         });
-
         if ($ctrl.registro) firaService.find($ctrl.registro._id).then(data => {});
-
     }]
 });

@@ -19,11 +19,11 @@
         <div class="row form-group">
             <div class="col-sm-4">
                 <label for="nombreVariable">Nombre de la variable</label>
-                <input type="text" id="nombreVariable" name="nombreVariable" ng-model="$ctrl.resolve.variable.nombreVariable"
-                       class="form-control" required>
+                <busca-variable id="nombreVariable" name="nombreVariable" ng-model="$ctrl.variableId" ng-required="true"
+                                on-select="$ctrl.seleccionarVariable(variable)"></busca-variable>
             </div>
             <div class="col-sm-4">
-                <label for="nombreRegistro">Nombre de la variable</label>
+                <label for="nombreRegistro">Nombre del registro</label>
                 <input type="text" id="nombreRegistro" name="nombreRegistro" ng-model="$ctrl.resolve.variable.nombreRegistro"
                        class="form-control" required>
             </div>
@@ -37,7 +37,9 @@
         <div class="row form-group">
             <div class="col-sm-2">
                 <label for="especifica">Es específica</label>
-                <input type="text" id="especifica" name="especifica" ng-model="$ctrl.resolve.variable.especifica" class="form-control">
+                <span class="input-group">
+                    <input type="checkbox" id="especifica" name="especifica" ng-model="$ctrl.resolve.variable.especifica">
+                </span>
             </div>
             <div class="col-sm-4">
                 <label for="unidadMedida">Unidad de medida</label>
@@ -52,52 +54,23 @@
             </div>
             <div class="col-sm-2">
                 <label for="activo">Activa</label>
-                <input type="text" id="activo" name="activo" ng-model="$ctrl.resolve.variable.activo"
-                       class="form-control">
+                 <span class="input-group">
+                    <input type="checkbox" id="activo" name="activo" ng-model="$ctrl.resolve.variable.activo">
+                </span>
             </div>
         </div>
         <div class="row form-group">
             <div class="col-sm-4">
                 <label for="fechaAlta">Fecha de Alta</label>
-                <p class="input-group">
-                    <input type="text" id="fechaAlta" name="fechaAlta" ng-model="$ctrl.registro.fechaAltaReg"
-                           uib-datepicker-popup="dd/MM/yyyy"
-                           is-open="$ctrl.fechaAltaOpen"
-                           class="form-control"/>
-                    <span class="input-group-btn">
-                                <button type="button" ng-click="$ctrl.openFechaAlta()" class="btn btn-default">
-                                    <i class="fa fa-calendar"></i>
-                                </button>
-                            </span>
-                </p>
+                <datepicker id="fechaAlta" name="fechaAlta" ng-model="$ctrl.resolve.variable.fechaAltaVariable"></datepicker>
             </div>
             <div class="col-sm-4">
-                <label for="fechaAlta">Fecha de Baja</label>
-                <p class="input-group">
-                    <input type="text" id="fechaBaja" name="fechaBaja" ng-model="$ctrl.registro.fechaBajaReg"
-                           uib-datepicker-popup="dd/MM/yyyy"
-                           is-open="$ctrl.fechaBajaOpen"
-                           class="form-control"/>
-                    <span class="input-group-btn">
-                                <button type="button" ng-click="$ctrl.openFechaBaja()" class="btn btn-default">
-                                    <i class="fa fa-calendar"></i>
-                                </button>
-                            </span>
-                </p>
+                <label for="fechaBaja">Fecha de Baja</label>
+                <datepicker id="fechaBaja" name="fechaBaja" ng-model="$ctrl.resolve.variable.fechaBajaVariable"></datepicker>
             </div>
             <div class="col-sm-4">
                 <label for="fechaModif">Fecha de Modificación</label>
-                <p class="input-group">
-                    <input type="text" id="fechaModif" name="fechaModif" ng-model="$ctrl.registro.fechaModifReg"
-                           uib-datepicker-popup="dd/MM/yyyy"
-                           is-open="$ctrl.fechaModifOpen"
-                           class="form-control"/>
-                    <span class="input-group-btn">
-                                <button type="button" ng-click="$ctrl.openFechaModif()" class="btn btn-default">
-                                    <i class="fa fa-calendar"></i>
-                                </button>
-                            </span>
-                </p>
+                <datepicker id="fechaModif" name="fechaModif" ng-model="$ctrl.resolve.variable.fechaModificacionVariable"></datepicker>
             </div>
         </div>
         <div class="row form-group">

@@ -1,12 +1,17 @@
-var model = global.app.model;
+let model = global.app.model,
+    authorityService = require('../../../services/authorityService');
 
 module.exports = router => {
-    router.get('/', (req, res, next) =>
-        model.Registro.find({}).populate('variables').exec().then(
-            registros => res.send(registros),
-            err => next(Error.create('Error al intentar obtener los registros', {}, err))
-        )
-    );
+
+    router.get('/', (req, res, next) => {
+        authorityService(req, (error, authority) => {
+            let query = authority ? {idGL: authority} : {};
+            model.Registro.find(query).populate('variables').exec().then(
+                registros => res.send(registros),
+                err => next(Error.create('Error al intentar obtener los registros', {}, err))
+            )
+        })
+    });
 
     router.get('/gl/:gobierno', (req, res, next) =>
         model.Registro.find({idGL: req.params.gobierno}).populate('variables').exec().then(

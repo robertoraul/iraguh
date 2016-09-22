@@ -1,4 +1,4 @@
-angular.module('ira.common').directive('ngRole', ['_', 'sessionService', 'branchPermissionsEnum', 'userPermissionsEnum', function (_, sessionService, branchPermissionsEnum, userPermissionsEnum) {
+angular.module('ira.common').directive('ngRole', ['_', 'sessionService', 'userPermissionsEnum', function (_, sessionService, userPermissionsEnum) {
     return {
         restrict: 'A',
         scope: {
@@ -9,23 +9,13 @@ angular.module('ira.common').directive('ngRole', ['_', 'sessionService', 'branch
                 throw new Error('ngRole: A role is required!');
             }
             sessionService.getCurrent().then(user => {
-                var userPermission = user.permissions[0];
+                var userPermission = user.permission;
 
                 if (userPermission == userPermissionsEnum.ADMIN) {
                     return;
                 }
                 $scope.$watch('ngRole', role => {
-                    if (role.branch) {
-                        var isAllowed = _.some(user.branches, {
-                            branch: role.branch,
-                            permission: role.permission || branchPermissionsEnum.CAN_WRITE
-                        });
-
-                        if (isAllowed) {
-                            $element.show();
-                            return;
-                        }
-                    } else if (role.permission && role.permission == userPermission) {
+                    if (role.permission && role.permission == userPermission) {
                         $element.show();
                         return;
                     }

@@ -13,7 +13,7 @@
       }
     }
   },
-  "connectionString": "mongodb://172.26.67.114:27017/ira-dev?safe=true",
+  "connectionString": "mongodb://localhost/ira-dev?safe=true",
     "auth": {
     "loginPage": "/signin",
     "sessionSecret": "2epDDWyPSvyl8zF9gsenPn2BM0KxB87zjWJ63JHhsFGN1g3IP",
@@ -31,7 +31,7 @@
     "mongodb": {
       "silent": true,
       "level": "error",
-      "db": "mongodb://172.26.67.114:27017/ira-dev?safe=true",
+      "db": "mongodb://localhost/ira-dev?safe=true",
       "capped": true,
       "handleExceptions": true
     },

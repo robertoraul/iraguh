@@ -4,13 +4,12 @@ let model = global.app.model,
 module.exports = router => {
 
     router.get('/', (req, res, next) => {
-        authorityService(req, (error, authority) => {
-            let query = authority ? {idGL: authority} : {};
+        authorityService(req, (error, query) => {
             model.Registro.find(query).populate('variables').exec().then(
                 registros => res.send(registros),
                 err => next(Error.create('Error al intentar obtener los registros', {}, err))
             )
-        })
+        });
     });
 
     router.get('/gl/:gobierno', (req, res, next) =>

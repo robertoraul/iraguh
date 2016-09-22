@@ -21,19 +21,40 @@ module.exports = router => {
     router.post('/indexed', (req, res, next) =>
         model.GobiernoLocal.find().exec().then(gls =>
             Promise.all(_.map(gls, gl => {
-                    return model.GobiernoLocalTipo.findOne({tipoGL: gl.tipoGL}).exec().then(
+                    let codDpe = gl.codGL.substr(0, 2);
+                    console.log(codDpe);
+                    return model.Dpe.findOne({ codigo: codDpe }).exec().then(
                         glt => {
                             let gobiernoLocal = new model.GobiernoLocal({
                                 codGL: gl.codGL,
                                 nombreGL: gl.nombreGL,
                                 pob2010: gl.pob2010,
                                 fechaSistema: gl.fechaSistema,
-                                gobiernolocaltipo: glt._id
+                                dpe: glt._id,
+                                gobiernolocaltipo: gl.gobiernolocaltipo
                             });
-                            console.log(gobiernoLocal);
-                            return gobiernoLocal.save();
+                            console.log(glt._id);
+                            gobiernoLocal.save().then(
+                                () => { return gl.delete() }
+                            );
+
                         }
-                    )
+                    );
+/*
+ return model.GobiernoLocalTipo.findOne({tipoGL: gl.tipoGL}).exec().then(
+ glt => {
+ let gobiernoLocal = new model.GobiernoLocal({
+ codGL: gl.codGL,
+ nombreGL: gl.nombreGL,
+ pob2010: gl.pob2010,
+ fechaSistema: gl.fechaSistema,
+ gobiernolocaltipo: glt._id
+ });
+ console.log(gobiernoLocal);
+ return gobiernoLocal.save();
+ }
+ )
+*/
                 }
             )).then(
                 () => res.sendStatus(200),

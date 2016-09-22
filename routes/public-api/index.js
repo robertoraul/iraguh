@@ -12,7 +12,6 @@ module.exports = function (router) {
         model.User.findOne({
             email: req.body.email,
             password: hash(req.body.password),
-            permissions: 'admin'
         }, {password: 0}).exec().then(
             user => {
                 if (!user) {

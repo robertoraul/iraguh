@@ -1,0 +1,12 @@
+<input type="text" id="buscaVariable" name="buscaVariable" ng-model="$ctrl.variable"
+       ng-blur="$ctrl.select()" ng-required="$ctrl.required"
+       uib-typeahead="variable as variable.nombreVariable for variable in $ctrl.search($viewValue)"
+       typeahead-min-length="3" typeahead-wait-ms="500" typeahead-editable="true"
+       typeahead-loading="$ctrl.loading" typeahead-no-results="$ctrl.noResults"
+       typeahead-on-select="$ctrl.select()" autocomplete="off" class="form-control"/>
+<div ng-show="$ctrl.loading">
+    <span class="fa fa-spinner fa-pulse"></span> Buscando...
+</div>
+<div ng-show="$ctrl.noResults">
+    <span class="fa fa-remove"></span> No se encontraron resultados.
+</div>

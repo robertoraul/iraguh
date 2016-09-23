@@ -2,6 +2,6 @@ angular.module('ira').controller('footerController', ['sessionService', function
     var vm = this;
     sessionService.getCurrent().then(user => {
         vm.user = user;
-        vm.role = user.permissions[0];
+        vm.role = user.permissions;
     });
 }]);

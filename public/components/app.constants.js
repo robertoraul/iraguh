@@ -1,8 +1,5 @@
-angular.module('ira').constant('branchPermissionsEnum', {
-    CAN_READ: 'canRead',
-    CAN_WRITE: 'canWrite'
-}).constant('userPermissionsEnum', {
+angular.module('ira').constant('userPermissionsEnum', {
     ADMIN: 'admin',
-    USER_ADMIN: 'user_admin',
-    USER: 'user'
+    DPE: 'dpe',
+    ROME: 'rome'
 });

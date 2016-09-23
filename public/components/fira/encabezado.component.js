@@ -3,13 +3,14 @@ angular.module('ira.fira').component('firaEncabezado', {
     bindings: {
         registro: '<'
     },
-    controller: ['$state', '_', 'sessionService', 'gobiernosLocalesService', function ($state, _, sessionService, gobiernosLocalesService) {
+    controller: ['$state', '_', 'firaService', 'userPermissionsEnum', function ($state, _, firaService, userPermissionsEnum) {
         var $ctrl = this;
-        $ctrl.$onInit = () =>  sessionService.getCurrent().then(user => {
-            $ctrl.cod = user.codGL || '';
-            gobiernosLocalesService.find($ctrl.cod).then(gobierno =>
-                $ctrl.gobierno = gobierno
-            );
+        $ctrl.$onInit = () =>  firaService.head().then(header => {
+            $ctrl.userPermissionsEnum = userPermissionsEnum;
+            $ctrl.admin = header.admin;
+            $ctrl.provincia = header.dpe ? header.dpe.provincia : (header.provincia ? header.provincia : null);
+            $ctrl.gobierno = header.nombreGL ? header : null;
+
         });
     }]
 });

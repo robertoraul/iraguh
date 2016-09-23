@@ -1,21 +1,21 @@
-    <div class="container">
+<div class="container" ng-hide="$ctrl.admin">
     <table class="table table-bordered">
         <thead>
         <tr>
-            <th>Provincia</th>
-            <th>Gobierno Local</th>
-            <th>Tipo de  Gobienrno Local</th>
-            <th>Código de Gobierno Local</th>
-            <th>Población CNPHV-2010</th>
+            <th ng-if="$ctrl.provincia">Provincia</th>
+            <th ng-if="$ctrl.gobierno">Gobierno Local</th>
+            <th ng-if="$ctrl.gobierno">Tipo de  Gobienrno Local</th>
+            <th ng-if="$ctrl.gobierno">Código de Gobierno Local</th>
+            <th ng-if="$ctrl.gobierno">Población CNPHV-2010</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td></td>
-            <td>{{$ctrl.gobierno.nombreGL}}</td>
-            <td>{{$ctrl.gobierno.gobiernolocaltipo.nombreTipoGL}}</td>
-            <td>{{$ctrl.gobierno.codGL}}</td>
-            <td>{{$ctrl.gobierno.pob2010}}</td>
+            <td ng-if="$ctrl.provincia">{{$ctrl.provincia}}</td>
+            <td ng-if="$ctrl.gobierno">{{$ctrl.gobierno.nombreGL}}</td>
+            <td ng-if="$ctrl.gobierno">{{$ctrl.gobierno.gobiernolocaltipo.nombreTipoGL}}</td>
+            <td ng-if="$ctrl.gobierno">{{$ctrl.gobierno.codGL}}</td>
+            <td ng-if="$ctrl.gobierno">{{$ctrl.gobierno.pob2010}}</td>
         </tr>
         </tbody>
     </table>

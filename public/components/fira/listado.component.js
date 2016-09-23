@@ -1,16 +1,13 @@
 angular.module('ira.fira').component('fira', {
     templateUrl: 'components/fira/listado.component.html',
     bindings: { gobierno: '<' },
-    controller: ['firaService', function (firaService) {
+    controller: ['sessionService', 'firaService', 'gobiernosLocalesService', function (sessionService, firaService, gobiernosLocalesService) {
         var $ctrl = this;
+
         $ctrl.$onInit = () => {
-            if ($ctrl.gobierno) {
-                firaService.filter($ctrl.gobierno).then(registros => {
-                    $ctrl.registros = registros
-                });
-            } else {
-                firaService.fetch().then(registros => $ctrl.registros = registros);
-            }
+            firaService.fetch().then(registros => {
+                $ctrl.registros = registros
+            });
         };
 
         $ctrl.delete = (idRegistro) => {

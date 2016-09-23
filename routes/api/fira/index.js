@@ -1,11 +1,33 @@
-var model = global.app.model;
+let model = global.app.model,
+    authorityService = require('../../../services/authorityService');
 
 module.exports = router => {
-    router.get('/', (req, res, next) =>
-        model.Registro.find({}).populate('variables').exec().then(
-            registros => res.send(registros),
-            err => next(Error.create('Error al intentar obtener los registros', {}, err))
-        )
+
+    router.get('/', (req, res, next) => {
+        authorityService(req, (error, query) => {
+            model.Registro.find(query).populate('variables').exec().then(
+                registros => res.send(registros),
+                err => next(Error.create('Error al intentar obtener los registros', {}, err))
+            )
+        });
+    });
+
+    router.get('/encabezado', (req, res, next) =>
+        authorityService(req, (error, query) => {
+            let queryDpe = query.dpe ? { codigo: query.dpe } : { _id: { $exists: false } };
+            let queryGob = query.idGL ? { codGL: query.idGL } : { _id: { $exists: false } };
+            let admin = { admin: (query == {}) };
+            Promise.all([
+                model.Dpe.findOne(queryDpe).exec(),
+                model.GobiernoLocal.findOne(queryGob).populate(['gobiernolocaltipo', 'dpe']).exec()
+            ]).then(
+                headersData => {
+                    let header = headersData[0] || headersData[1] || admin;
+                    res.send(header);
+                 },
+                err => next(Error.create('Error al intentar obtener datos de composicición de encabezado.', {}, err))
+            );
+        })
     );
 
     router.get('/gl/:gobierno', (req, res, next) =>

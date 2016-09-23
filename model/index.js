@@ -7,20 +7,21 @@ var model = module.exports;
 model.enums = {
     userPermission: {
         ADMIN: 'admin',
-        USER_ADMIN: 'user_admin',
-        USER: 'user'
+        DPE: 'dpe',
+        ROME: 'rome'
     }
 };
 
 model.User = mongoose.model('User', new Schema({
     _id: {type: String},
-    codGL: {type: String},
+    dpe: {type: ObjectId, ref: 'Dpe'},
+    gobiernolocal: {type: ObjectId, ref: 'GobiernoLocal'},
     password: {type: String, required: true},
     email: {type: String, required: true},
     name: {type: String, required: true},
     surname: {type: String, required: true},
     disabled: Boolean,
-    permissions: [{type: String, ref: model.enums.userPermission}]
+    permission: {type: String, ref: model.enums.userPermission}
 }, {collection: 'users', timestamps: true}));
 
 model.Registro = mongoose.model('Registro', new Schema({
@@ -42,9 +43,9 @@ model.Registro = mongoose.model('Registro', new Schema({
     obsEmail: {type: String},
     provincia: {type: String, required: true},
     idGL: {type: String},
+    dpe: {type: String},
     gobLocal: {type: String},
     tipoGobLocal: {type: String},
-    codGobLocal: {type: String},
     fechaAltaReg: {type: Date},
     fechaModifReg: {type: Date},
     fechaBajaReg: {type: Date},
@@ -77,6 +78,7 @@ model.GobiernoLocal = mongoose.model('GobiernoLocal', new Schema({
     nombreGL : {type: String},
     pob2010 : {type: Number},
     fechaSistema : {type: Date},
+    dpe: {type: ObjectId, ref: 'Dpe'},
     gobiernolocaltipo: {type: ObjectId, ref: 'GobiernoLocalTipo'},
     deleted: {type: Boolean}
 },{collection: 'gobiernolocal', timestamps: true}));
@@ -85,5 +87,10 @@ model.GobiernoLocalTipo = mongoose.model('GobiernoLocalTipo', new Schema({
     tipoGL: {type: Number},
     siglaTipoGL: {type: String}
 },{collection: 'gobiernolocaltipo', timestamps: true}));
+
+model.Dpe = mongoose.model('Dpe', new Schema({
+    codigo: {type: String, required: true, index: { unique: true }},
+    provincia: {type: String, required: true}
+},{collection: 'dpes', timestamps: true}));
 
 model.Error = mongoose.model('Error', new Schema({}, {collection: 'logs.errors'}));

@@ -1,0 +1,28 @@
+<div class="container">
+    <div>
+        <table class="table table-striped table-responsive table-vertical-middle">
+            <thead>
+            <tr>
+                <th>Codigo Gobierno Local</th>
+                <th>Nombre</th>
+                <th>Tipo Gobierno Local</th>
+                <th>Población al 2010</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="gobierno in $ctrl.gobiernos">
+                <td>{{::gobierno.codGL}}</td>
+                <td>{{::gobierno.nombreGL}}</td>
+                <td>{{::gobierno.gobiernolocaltipo}}</td>
+                <td>{{::gobierno.pob2010}}</td>
+                <td>
+                    <a ui-sref="fira.detalle({codGl: gobierno.codGL})" class="btn btn-info btn-sm" title="Ver Registros del gobierno Local">
+                        <span class="fa fa-eye"></span>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

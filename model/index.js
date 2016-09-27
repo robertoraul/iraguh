@@ -14,8 +14,8 @@ model.enums = {
 
 model.User = mongoose.model('User', new Schema({
     _id: {type: String},
-    dpe: {type: ObjectId, ref: 'Dpe'},
-    gobiernolocal: {type: ObjectId, ref: 'GobiernoLocal'},
+    dpe: {type: String},
+    rome: {type: String},
     password: {type: String, required: true},
     email: {type: String, required: true},
     name: {type: String, required: true},
@@ -53,7 +53,18 @@ model.Registro = mongoose.model('Registro', new Schema({
     obsFechaModifReg: {type: String},
     obsFechaBajaReg: {type: String},
     activo: {type: Boolean},
-    variables: [{type: ObjectId, ref: 'Variable', required: true}],
+    variables: [{
+        nombre: {type: String},
+        apartado: {type: String},
+        fechaAlta: {type: Date},
+        fechaBaja: {type: Date},
+        fechaModificacion: {type: Date},
+        esEspecifica: {type: Boolean},
+        detalle: {type: String},
+        unidadMedida: {type: ObjectId, ref: 'UnidadMedida'},
+        activo: {type: Boolean},
+        deleted: {type: Boolean}
+    }],
     deleted: {type: Boolean}
 }, {collection: 'registros', timestamps: true}));
 
@@ -92,5 +103,18 @@ model.Dpe = mongoose.model('Dpe', new Schema({
     codigo: {type: String, required: true, index: { unique: true }},
     provincia: {type: String, required: true}
 },{collection: 'dpes', timestamps: true}));
+
+model.Rome = mongoose.model('Rome', new Schema({
+    rome: {type: String, required: true, index: { unique: true }},
+    nombre: {type: String},
+    tipo: {type: ObjectId, ref: 'GobiernoLocalTipo'},
+    poblacion2010: {type: Number},
+    dpe: {type: String}
+},{collection: 'romes', timestamps: true}));
+
+model.UnidadMedida = mongoose.model('UnidadMedida', new Schema({
+    idUnidadMedida: {type: Number},
+    unidadMedida: {type: String}
+},{collection: 'unidadmedida', timestamps: true}));
 
 model.Error = mongoose.model('Error', new Schema({}, {collection: 'logs.errors'}));

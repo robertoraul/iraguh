@@ -6,7 +6,9 @@ angular.module('ira.home').component('header', {
             $ctrl.userPermissionsEnum = userPermissionsEnum;
 
             $ctrl.collapsed = true;
-            $scope.$on('$locationChangeSuccess', () => $ctrl.location = $location.path());
+            $scope.$on('$locationChangeSuccess', () => {
+                $ctrl.location = $location.path()
+            });
 
     }]
 });

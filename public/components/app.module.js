@@ -13,9 +13,11 @@ angular.module('ira.core', [
 ]);
 angular.module('ira', [
     'ira.core',
+    'ira.dpes',
     'ira.home',
     'ira.fira',
     'ira.gobiernosLocales',
     'ira.logs',
+    'ira.romes',
     'ira.users'
 ]);

@@ -15,7 +15,7 @@ angular.module('ira.common').directive('ngRole', ['_', 'sessionService', 'userPe
                     return;
                 }
                 $scope.$watch('ngRole', role => {
-                    if (role.permission && role.permission == userPermission) {
+                    if (role.permissions && role.permissions.indexOf(userPermission) != -1) {
                         $element.show();
                         return;
                     }

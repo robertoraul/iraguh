@@ -1,15 +1,22 @@
 let model = global.app.model,
+    _ = require('lodash'),
     authorityService = require('../../../services/authorityService');
 
 module.exports = router => {
 
     router.get('/', (req, res, next) => {
         authorityService(req, (error, query) => {
-            model.Registro.find(query).populate('variables').exec().then(
+            if (error) {
+                next(Error.create('Error de validación de usuario nro. ' + error, {}, error));
+                return router;
+            }
+            query = req.query.rome ? _.merge(query, {idGL: req.query.rome}) : query;
+            model.Registro.find(query).populate('variables.unidadMedida').exec().then(
                 registros => res.send(registros),
                 err => next(Error.create('Error al intentar obtener los registros', {}, err))
             )
         });
+
     });
 
     router.get('/encabezado', (req, res, next) =>
@@ -30,8 +37,8 @@ module.exports = router => {
         })
     );
 
-    router.get('/gl/:gobierno', (req, res, next) =>
-        model.Registro.find({idGL: req.params.gobierno}).populate('variables').exec().then(
+    router.get('/:rome', (req, res, next) =>
+        model.Registro.find({idGL: req.params.rome}).populate('variables').exec().then(
             registros => res.send(registros),
             err => next(Error.create('Error al intentar obtener los registros', {}, err))
         )

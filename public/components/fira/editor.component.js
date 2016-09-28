@@ -32,7 +32,7 @@ angular.module('ira.fira').component('firaEditor', {
 
         $ctrl.agregarVariable = () => {
             $uibModal.open({
-                component: 'agregarVariable',
+                component: 'variableFinder',
                 size: 'lg',
                 resolve: {
                     variable:  () => $ctrl.variable

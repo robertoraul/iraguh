@@ -1,5 +1,5 @@
-angular.module('ira.fira').component('agregarVariable', {
-    templateUrl: 'components/fira/agregarVariable.component.html',
+angular.module('ira.variables').component('variableFinder', {
+    templateUrl: 'components/variables/variableFinder.component.html',
     bindings: {
         resolve: '<',
         close: '&',
@@ -8,7 +8,7 @@ angular.module('ira.fira').component('agregarVariable', {
     controller: function () {
         let $ctrl = this;
         $ctrl.accept = () => $ctrl.close({$value: $ctrl.resolve.variable});
-        $ctrl.seleccionarVariable = variable => {
+        $ctrl.select = variable => {
             if (variable._id) {
                 $ctrl.resolve.variable = variable;
                 $ctrl.resolve.variable.fechaAltaVariable = new Date($ctrl.resolve.variable.fechaAltaVariable);

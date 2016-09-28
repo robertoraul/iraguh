@@ -1,0 +1,65 @@
+<div class="modal-header">
+    <div class="row text-right">
+        <div class="col-sm-12">
+            <a ng-click="$ctrl.dismiss()" class="btn">
+                <span class="fa fa-times"></span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="modal-body">
+    <form name="formVariableFinder" ng-submit="$ctrl.accept()">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3>
+                    <span class="fa fa-database"></span> Variable
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="row form-group">
+                    <div class="col-sm-4">
+                        <label for="section">Sección</label>
+                        <input type="text" id="section" name="section" ng-model="$ctrl.resolve.variable.section"
+                               class="form-control"
+                               required>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="variableName">Nombre</label>
+                        <input type="text" id="variableName" name="variableName" ng-model="$ctrl.resolve.variable.name"
+                               class="form-control" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">Descripción</div>
+            <div class="panel-body">
+                <div class="row form-group">
+                    <div class="col-sm-8">
+                        <label for="detail">Detalle</label>
+                        <textarea id="detail" name="detail"
+                               ng-model="$ctrl.resolve.variable.description.detail" class="form-control" required></textarea>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="measure">Unidad de medida</label>
+                        <input type="text" id="measure" name="measure" ng-model="$ctrl.resolve.variable.description.measure"
+                               class="form-control"
+                               required>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-8 text-right">
+                <button type="submit" class="btn btn-primary">
+                    <span class="fa fa-floppy-o"></span> Guardar
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="alert alert-danger" ng-show="$ctrl.showError">
+                <strong>Error</strong> Deben estar todos los campos completos.
+            </div>
+        </div>
+    </form>
+</div>

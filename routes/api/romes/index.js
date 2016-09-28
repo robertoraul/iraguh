@@ -13,11 +13,19 @@ module.exports = router => {
             console.log(query);
             model.Rome.find(query).populate('tipo').exec().then(
                 romes => {
-                    res.send(romes);
+                    res.send({romes: romes, query: query});
                 },
                 err => next(Error.create('Error al intentar obtener las romes', {}, err))
             )
         })
     );
+
+    router.get('/:rome', (req, res, next) =>
+        model.Rome.findOne({rome: req.params.rome}).populate('tipo').exec().then(
+            rome => res.send(rome),
+            err => next(Error.create('Error al intentar obtener la rome', {rome: req.params.rome}, err))
+        )
+    );
+
     return router;
 };

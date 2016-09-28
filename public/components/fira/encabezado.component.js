@@ -1,16 +1,28 @@
 angular.module('ira.fira').component('firaEncabezado', {
     templateUrl: 'components/fira/encabezado.component.html',
     bindings: {
-        registro: '<'
+        dpe: '<?',
+        rome: '<?',
+        registro: '<?'
     },
-    controller: ['$state', '_', 'firaService', 'userPermissionsEnum', function ($state, _, firaService, userPermissionsEnum) {
+    controller: ['$state', '_', 'dpesService', 'romesService', function ($state, _, dpesService, romesService) {
         var $ctrl = this;
-        $ctrl.$onInit = () =>  firaService.head().then(header => {
-            $ctrl.userPermissionsEnum = userPermissionsEnum;
-            $ctrl.admin = header.admin;
-            $ctrl.provincia = header.dpe ? header.dpe.provincia : (header.provincia ? header.provincia : null);
-            $ctrl.gobierno = header.nombreGL ? header : null;
+        $ctrl.$onInit = () =>  {
+            if ($ctrl.dpe) {
+                dpesService.find($ctrl.dpe).then( dpe => {
+                    $ctrl.dpeObj = dpe;
+                })
+            } else if ($ctrl.rome) {
+                romesService.find($ctrl.rome).then( rome => {
+                    dpesService.find(rome.dpe).then( dpe => {
+                        $ctrl.dpeObj = dpe;
+                        $ctrl.romeObj = rome;
+                    })
+               })
+            } else {
+                $ctrl.hide = true;
+            }
+        };
 
-        });
     }]
 });

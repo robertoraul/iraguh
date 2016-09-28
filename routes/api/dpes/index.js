@@ -18,5 +18,13 @@ module.exports = router => {
             )
         })
     );
+
+    router.get('/:dpe', (req, res, next) =>
+        model.Dpe.findOne({codigo: req.params.dpe}).then(
+            dpe => res.send(dpe),
+            err => next(Error.create('Error al intentar obtener la Dpe.', {codigo: req.params.dpe}, err))
+        )
+    );
+
     return router;
 };

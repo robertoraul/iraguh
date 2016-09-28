@@ -1,22 +1,40 @@
-<div class="container" ng-hide="$ctrl.admin">
-    <table class="table table-bordered">
-        <thead>
-        <tr>
-            <th ng-if="$ctrl.provincia">Provincia</th>
-            <th ng-if="$ctrl.gobierno">Gobierno Local</th>
-            <th ng-if="$ctrl.gobierno">Tipo de  Gobienrno Local</th>
-            <th ng-if="$ctrl.gobierno">Código de Gobierno Local</th>
-            <th ng-if="$ctrl.gobierno">Población CNPHV-2010</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td ng-if="$ctrl.provincia">{{$ctrl.provincia}}</td>
-            <td ng-if="$ctrl.gobierno">{{$ctrl.gobierno.nombreGL}}</td>
-            <td ng-if="$ctrl.gobierno">{{$ctrl.gobierno.gobiernolocaltipo.nombreTipoGL}}</td>
-            <td ng-if="$ctrl.gobierno">{{$ctrl.gobierno.codGL}}</td>
-            <td ng-if="$ctrl.gobierno">{{$ctrl.gobierno.pob2010}}</td>
-        </tr>
-        </tbody>
-    </table>
+<div class="container" ng-hide="$ctrl.hide">
+    <div class="row">
+        <div class="col-sm-offset-3 col-sm-6 col-sm-offset-3">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th ng-if="$ctrl.dpeObj">DPE</th>
+                    <th ng-if="$ctrl.dpeObj">Provincia</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td ng-if="$ctrl.dpeObj">{{$ctrl.dpeObj.codigo}}</td>
+                    <td ng-if="$ctrl.dpeObj">{{$ctrl.dpeObj.provincia}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-12">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th ng-if="$ctrl.romeObj">ROME</th>
+                    <th ng-if="$ctrl.romeObj">Gobierno Local</th>
+                    <th ng-if="$ctrl.romeObj">Tipo de  Gobienrno Local</th>
+                    <th ng-if="$ctrl.romeObj">Población CNPHV-2010</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td ng-if="$ctrl.romeObj">{{$ctrl.romeObj.rome}}</td>
+                    <td ng-if="$ctrl.romeObj">{{$ctrl.romeObj.nombre}}</td>
+                    <td ng-if="$ctrl.romeObj">{{$ctrl.romeObj.tipo.nombreTipoGL}}</td>
+                    <td ng-if="$ctrl.romeObj">{{$ctrl.romeObj.poblacion2010}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

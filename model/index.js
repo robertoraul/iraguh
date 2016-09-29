@@ -25,11 +25,11 @@ model.User = mongoose.model('User', new Schema({
 }, {collection: 'users', timestamps: true}));
 
 model.Registro = mongoose.model('Registro', new Schema({
-    sector: {type: String, required: true},
-    nombreRegistro: {type: String, required: true},
+    sector: {type: String},
+    nombreRegistro: {type: String},
     informatizado: {type: Boolean},
     objetivoRegistro: {type: String},
-    nomApellido: {type: String, required: true},
+    nomApellido: {type: String},
     puestoOrg: {type: String},
     telefono: {type: String},
     email: {type: String},
@@ -41,7 +41,7 @@ model.Registro = mongoose.model('Registro', new Schema({
     obsPuestoOrg: {type: String},
     obsTelefono: {type: String},
     obsEmail: {type: String},
-    provincia: {type: String, required: true},
+    provincia: {type: String},
     idGL: {type: String},
     dpe: {type: String},
     gobLocal: {type: String},
@@ -54,14 +54,16 @@ model.Registro = mongoose.model('Registro', new Schema({
     obsFechaBajaReg: {type: String},
     activo: {type: Boolean},
     variables: [{
-        nombre: {type: String},
-        apartado: {type: String},
+        name: {type: String},
+        section: {type: String},
         fechaAlta: {type: Date},
         fechaBaja: {type: Date},
         fechaModificacion: {type: Date},
         esEspecifica: {type: Boolean},
-        detalle: {type: String},
-        unidadMedida: {type: ObjectId, ref: 'UnidadMedida'},
+        description: {
+            detail: {type: String},
+            measure: {type: ObjectId, ref: 'UnidadMedida'},
+        },
         activo: {type: Boolean},
         deleted: {type: Boolean}
     }],

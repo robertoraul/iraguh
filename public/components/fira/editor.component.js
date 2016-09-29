@@ -27,10 +27,10 @@ angular.module('ira.fira').component('firaEditor', {
 
 
         $ctrl.save = () => {
-            alert('Para no tocar el modelo, todavía no persisto...');
+            firaService.save($ctrl.registro);
         };
 
-        $ctrl.agregarVariable = () => {
+        $ctrl.addVariable = () => {
             $uibModal.open({
                 component: 'variableFinder',
                 size: 'lg',
@@ -45,29 +45,24 @@ angular.module('ira.fira').component('firaEditor', {
             );
         };
 
-        $ctrl.seleccionarVariable = variable => {
-            $ctrl.variable = variable;
-            $ctrl.registro.variables.push(variable);
-        };
-
-        $ctrl.editarVariable = variable =>
+        $ctrl.editVariable = variable =>
             $uibModal.open({
-                component: 'agregarVariable',
+                component: 'variableFinder',
                 size: 'lg',
                 resolve: {
                     variable:  () => angular.copy(variable)
                 },
             }).result.then(
-                variableEditada => $ctrl.registro.variables[$ctrl.registro.variables.indexOf(variable)] = variableEditada
+                edited => $ctrl.registro.variables[$ctrl.registro.variables.indexOf(variable)] = edited
             );
 
-        $ctrl.borrarVariable = variable =>  {
+        $ctrl.deleteVariable = variable =>  {
             if ($ctrl.registro.variables.length) {
                 if ($ctrl.variablesNuevas.indexOf(variable) > -1) {
                     $ctrl.registro.variables.splice($ctrl.registro.variables.indexOf(variable), 1);
                     $ctrl.variablesNuevas.splice($ctrl.variablesNuevas.indexOf(variable), 1);
                 } else {
-                    alert('La variable fue asignada previamente al registro. No se elimina sino que se marca como borrada.');
+                    $ctrl.registro.variables[$ctrl.registro.variables.indexOf(variable)].deleted = true;
                 }
             }
         };

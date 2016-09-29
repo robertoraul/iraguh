@@ -41,10 +41,9 @@
                                ng-model="$ctrl.resolve.variable.description.detail" class="form-control" required></textarea>
                     </div>
                     <div class="col-sm-4">
-                        <label for="measure">Unidad de medida</label>
-                        <input type="text" id="measure" name="measure" ng-model="$ctrl.resolve.variable.description.measure"
-                               class="form-control"
-                               required>
+                        <measures-finder ng-model="$ctrl.resolve.variable.description.measure"
+                            on-select="$ctrl.selectMeasure(measure)"></measures-finder>
+
                     </div>
                 </div>
             </div>

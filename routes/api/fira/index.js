@@ -1,48 +1,16 @@
 let model = global.app.model,
     _ = require('lodash'),
-    authorityService = require('../../../services/authorityService');
+    scopeFilter = require('../../../services/scopeFilter');
 
 module.exports = router => {
 
-    router.get('/', (req, res, next) => {
-        authorityService(req, (error, query) => {
-            if (error) {
-                next(Error.create('Error de validación de usuario nro. ' + error, {}, error));
-                return router;
-            }
-            query = req.query.rome ? _.merge(query, {idGL: req.query.rome}) : query;
-            model.Registro.find(query).populate('variables.unidadMedida').exec().then(
-                registros => res.send(registros),
-                err => next(Error.create('Error al intentar obtener los registros', {}, err))
-            )
-        });
-
-    });
-
-    router.get('/encabezado', (req, res, next) =>
-        authorityService(req, (error, query) => {
-            let queryDpe = query.dpe ? { codigo: query.dpe } : { _id: { $exists: false } };
-            let queryGob = query.idGL ? { codGL: query.idGL } : { _id: { $exists: false } };
-            let admin = { admin: (query == {}) };
-            Promise.all([
-                model.Dpe.findOne(queryDpe).exec(),
-                model.GobiernoLocal.findOne(queryGob).populate(['gobiernolocaltipo', 'dpe']).exec()
-            ]).then(
-                headersData => {
-                    let header = headersData[0] || headersData[1] || admin;
-                    res.send(header);
-                 },
-                err => next(Error.create('Error al intentar obtener datos de composicición de encabezado.', {}, err))
-            );
-        })
-    );
-
-    router.get('/:rome', (req, res, next) =>
-        model.Registro.find({idGL: req.params.rome}).populate('variables').exec().then(
+    router.get('/', scopeFilter(), (req, res, next) => {
+        let query = _.merge(req.scopeFilter, {idGL: req.query.rome});
+        model.Registro.find(query).populate('variables.unidadMedida').exec().then(
             registros => res.send(registros),
             err => next(Error.create('Error al intentar obtener los registros', {}, err))
-        )
-    );
+        );
+    });
 
     router.get('/variables', (req, res, next) =>
         model.Variable.find({}).exec().then(
@@ -63,7 +31,7 @@ module.exports = router => {
     });
 
     router.get('/:id', (req, res, next) => {
-        model.Registro.findById(req.params.id).populate('variables').exec().then(
+        model.Registro.findById(req.params.id).exec().then(
             registro => res.send(registro),
             err => next(Error.create('Error al buscar el registro.', {_id: req.params.id}, err))
         )
@@ -74,6 +42,36 @@ module.exports = router => {
             variable => res.send(variable),
             err => next(Error.create('Error al buscar la variable.', {_id: req.params.id}, err))
         )
+    });
+
+    router.post('/', (req, res, next) => {
+        Promise.all(_.map(req.body.registro.variables, variable => {
+            return {
+                section: variable.section,
+                name: variable.name,
+                description: {
+                    detail: variable.detail,
+                    measure: variable.measure
+                }
+            }
+        })).then( variables => {
+            let registro = new model.Registro(req.body.registro);
+            registro.variables = variables;
+            registro.save().then(
+                () => res.sendStatus(200),
+                err => next(Error.create('Error al intentar guardar el registro.', {registro: req.body.registro}, err))
+            )
+        })
+    });
+
+    router.put('/:id', (req, res, next) => {
+        model.Registro.findById(req.params.id).then(registro => {
+            _.assign(registro, req.body.registro);
+            return registro.save().then(
+                () => res.sendStatus(200),
+                err => next(Error.create('Error al intentar actualizar el registro.', {}, err))
+            )
+        })
     });
 
     return router;

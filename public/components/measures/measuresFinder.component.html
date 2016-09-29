@@ -1,0 +1,14 @@
+<label for="measuresFinder">Unidad de Medida</label>
+<input type="text" id="measuresFinder" name="measuresFinder" ng-model="$ctrl.measure" ng-disabled="$ctrl.disabled"
+       ng-blur="$ctrl.select()" required autocomplete="off"
+       uib-typeahead="measure as measure.unidadMedida for measure in $ctrl.search($viewValue)"
+       typeahead-min-length="3" typeahead-wait-ms="500" typeahead-editable="false"
+       typeahead-loading="loading" typeahead-no-results="noResults"
+       typeahead-on-select="$ctrl.select()"
+       class="form-control"/>
+<div ng-show="loading">
+    <span class="fa fa-refresh"></span> Buscando...
+</div>
+<div ng-show="noResults">
+    <span class="fa fa-remove"></span> No se encontraron resultados.
+</div>

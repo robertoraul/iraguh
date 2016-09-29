@@ -123,7 +123,7 @@
                         </div>
                         <div class="row form-group">
                             <div class="col-sm-4">
-                                <label for="email">E-Mail</label>
+                                <label for="email">Observaciones</label>
                                 <input type="text" id="email" name="email" ng-model="$ctrl.registro.email" class="form-control">
                             </div>
                             <div class="col-sm-8">
@@ -139,7 +139,7 @@
                     <div class="panel-body">
                         <div class="row form-group">
                             <div class="col-sm-6">
-                                <button type="button" ng-click="$ctrl.agregarVariable()" class="btn btn-primary">
+                                <button type="button" ng-click="$ctrl.addVariable()" class="btn btn-primary">
                                     <span class="fa fa-plus"></span> Agregar
                                 </button>
                             </div>
@@ -154,39 +154,27 @@
                                 <table class="table table-striped table-responsive table-vertical-middle">
                                     <thead>
                                     <tr>
-                                        <th>Número de variable</th>
-                                        <th>Registro</th>
-                                        <th>Apartado</th>
-                                        <th>Variable</th>
-                                        <th>Fecha de alta</th>
-                                        <th>Fecha de baja</th>
-                                        <th>Fecha de modificación</th>
+                                        <th>Sección</th>
+                                        <th>Número de orden</th>
+                                        <th>Nombre</th>
                                         <th>Detalle</th>
                                         <th>Unidad de medida</th>
-                                        <th>Específica</th>
-                                        <th>Activa</th>
                                         <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr ng-repeat="variable in $ctrl.registro.variables track by $index">
-                                        <td>{{variable.variableNro}}</td>
-                                        <td>{{variable.nombreRegistro}}</td>
-                                        <td>{{variable.apartado}}</td>
-                                        <td>{{variable.nombreVariable}}</td>
-                                        <td>{{variable.fechaAltaVariable | date}}</td>
-                                        <td>{{variable.fechaBajaVariable | date}}</td>
-                                        <td>{{variable.fechaModificacionVariable | date}}</td>
-                                        <td>{{variable.detalle}}</td>
-                                        <td>{{variable.unidadMedida}}</td>
-                                        <td>{{variable.especifica | yesNo}}</td>
-                                        <td>{{variable.activo | yesNo}}</td>
+                                    <tr ng-repeat="variable in $ctrl.registro.variables | filter: deleted">
+                                        <td>{{variable.section}}</td>
+                                        <td>{{$index + 1}}</td>
+                                        <td>{{variable.name}}</td>
+                                        <td>{{variable.description.detail}}</td>
+                                        <td>{{variable.description.measure.unidadMedida}}</td>
                                         <td class="text-center">
-                                            <a ng-click="$ctrl.editarVariable(variable)" title="Editar"
+                                            <a ng-click="$ctrl.editVariable(variable)" title="Editar"
                                                class="btn btn-sm">
                                                 <span class="fa fa-pencil"></span>
                                             </a>
-                                            <a ng-click="$ctrl.borrarVariable(variable)" title="Eliminar de la lista"
+                                            <a ng-click="$ctrl.deleteVariable(variable)" title="Eliminar de la lista"
                                                class="btn btn-sm">
                                                 <span class="fa fa-trash text-danger"></span>
                                             </a>

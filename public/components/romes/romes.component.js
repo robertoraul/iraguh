@@ -7,8 +7,8 @@ angular.module('ira.romes').component('romes', {
         var $ctrl = this;
         $ctrl.$onInit = () => {
             if ($ctrl.filters) {
-                romesService.fetch($ctrl.filters).then(romes => {
-                    $ctrl.romes = romes;
+                romesService.fetch($ctrl.filters).then(data => {
+                    $ctrl.romes = data.romes;
                     $ctrl.dpe = $ctrl.filters.dpe;
                 });
             }
